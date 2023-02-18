@@ -10,7 +10,13 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
   <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$/../addressbook-web-tests">
+      <ProjectState />
+    </projectState>
     <projectState path="$PROJECT_DIR$/../sandbox">
       <ProjectState />
     </projectState>
@@ -22,6 +28,9 @@
           <activation />
         </task>
         <task path="$PROJECT_DIR$/../sandbox">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/../addressbook-web-tests">
           <activation />
         </task>
         <projects_view>
@@ -55,8 +64,9 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "extract.method.default.visibility": "private",
     "jdk.selected.JAVA_MODULE": "18",
-    "last_opened_file_path": "C:/java_course/java_pft/sandbox/build.gradle",
+    "last_opened_file_path": "C:/java_course/java_pft/addressbook-web-tests/build.gradle",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -68,7 +78,7 @@
       <recent name="ru.stqa.pft.sandbox" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.Tests">
+  <component name="RunManager" selected="TestNG.GroupCreationTests">
     <configuration name="program" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.sandbox.program" />
       <module name="sandbox.main" />
@@ -76,23 +86,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="sandbox [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="GroupCreationTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/../sandbox" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/../addressbook-web-tests" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
+        <option name="scriptParameters" value="" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value="dependencies" />
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;ru.stqa.pft.adressbook.GroupCreationTests&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
@@ -118,6 +130,23 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="GroupCreationTests" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="addressbook-web-tests.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.stqa.pft.adressbook.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ru.stqa.pft.adressbook" />
+      <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.adressbook.GroupCreationTests" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Tests" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="sandbox.test" />
       <extension name="coverage">
@@ -137,10 +166,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.GroupCreationTests" />
+        <item itemvalue="Gradle.GroupCreationTests" />
         <item itemvalue="TestNG.Tests" />
         <item itemvalue="Application.program" />
         <item itemvalue="Gradle.sandbox [properties]" />
-        <item itemvalue="Gradle.sandbox [dependencies]" />
       </list>
     </recent_temporary>
   </component>
