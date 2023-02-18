@@ -75,13 +75,14 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="ru.stqa.pft.adressbook.appmanager" />
       <recent name="ru.stqa.pft.adressbook" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="ru.stqa.pft.sandbox" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.DeleteGroup">
+  <component name="RunManager" selected="TestNG.ContactCreation">
     <configuration name="GroupCreationTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -175,8 +176,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.DeleteGroup" />
         <item itemvalue="TestNG.ContactCreation" />
+        <item itemvalue="TestNG.DeleteGroup" />
         <item itemvalue="TestNG.GroupCreationTests" />
         <item itemvalue="Gradle.GroupCreationTests" />
         <item itemvalue="TestNG.Tests" />
