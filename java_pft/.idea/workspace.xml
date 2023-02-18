@@ -109,12 +109,12 @@
       <module name="addressbook-web-tests.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ru.stqa.pft.adressbook.*" />
+          <option name="PATTERN" value="ru.stqa.pft.adressbook.appmanager.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="ru.stqa.pft.adressbook" />
-      <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.adressbook.ContactCreation" />
+      <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.adressbook.tests.ContactCreation" />
       <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
@@ -126,12 +126,12 @@
       <module name="addressbook-web-tests.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ru.stqa.pft.adressbook.*" />
+          <option name="PATTERN" value="ru.stqa.pft.adressbook.appmanager.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="ru.stqa.pft.adressbook" />
-      <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.adressbook.DeleteGroup" />
+      <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.adressbook.tests.DeleteGroup" />
       <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
@@ -143,12 +143,12 @@
       <module name="addressbook-web-tests.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ru.stqa.pft.adressbook.*" />
+          <option name="PATTERN" value="ru.stqa.pft.adressbook.appmanager.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="ru.stqa.pft.adressbook" />
-      <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.adressbook.GroupCreationTests" />
+      <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.adressbook.tests.GroupCreationTests" />
       <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
