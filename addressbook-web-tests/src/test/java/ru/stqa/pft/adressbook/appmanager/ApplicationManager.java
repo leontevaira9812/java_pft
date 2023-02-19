@@ -6,10 +6,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.time.Duration;
 
 public class ApplicationManager {
+
   public WebDriver driver;
   private NavigationHelper navigationHelper;
   private SessionHelper sessionHelper;
   private GroupHelper groupHelper;
+  private ContactHelper contactHelper;
   public JavascriptExecutor js;
 
 
@@ -39,6 +41,7 @@ public class ApplicationManager {
     groupHelper = new GroupHelper(driver);
     navigationHelper = new NavigationHelper(driver);
     sessionHelper = new SessionHelper(driver);
+    contactHelper = new ContactHelper(driver);
     driver.get("http://localhost/addressbook/");
     sessionHelper.login("admin", "secret");
   }
@@ -58,4 +61,10 @@ public class ApplicationManager {
   public NavigationHelper getNavigationHelper() {
     return navigationHelper;
   }
+
+
+  public ContactHelper getContactHelper() {
+    return contactHelper;
+  }
+
 }

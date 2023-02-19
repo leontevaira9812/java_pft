@@ -12,4 +12,8 @@ public class NavigationHelper extends BaseHelper {
   public void goToGroupPage() {
     click(By.linkText("groups"));
   }
+
+  public void returnToHomePage() {
+    driver.findElement(By.linkText("home")).click();
+  }
 }
