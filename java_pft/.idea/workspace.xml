@@ -85,7 +85,7 @@
       <recent name="ru.stqa.pft.sandbox" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.GroupCreationTests">
+  <component name="RunManager" selected="TestNG.ContactDelete">
     <configuration name="ContactCreation" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="addressbook-web-tests.test" />
       <extension name="coverage">
@@ -103,7 +103,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ContactModification" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="ContactDelete" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="addressbook-web-tests.test" />
       <extension name="coverage">
         <pattern>
@@ -112,7 +112,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="ru.stqa.pft.adressbook.tests" />
-      <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.adressbook.tests.ContactModification" />
+      <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.adressbook.tests.ContactDelete" />
       <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
@@ -173,11 +173,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.ContactDelete" />
         <item itemvalue="TestNG.GroupCreationTests" />
         <item itemvalue="TestNG.EquationTest" />
         <item itemvalue="TestNG.Tests" />
         <item itemvalue="TestNG.ContactCreation" />
-        <item itemvalue="TestNG.ContactModification" />
       </list>
     </recent_temporary>
   </component>
