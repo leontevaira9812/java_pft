@@ -33,8 +33,15 @@ public class GroupHelper extends BaseHelper {
   }
 
   public void selectGroup() {
-    //isElementPresent(By.className("group"));
-    click(By.name("selected[]"));
+    if (isElementPresent(By.className("group"))) {
+      click(By.name("selected[]"));
+    } else {
+      initNewGroup();
+      fillGroupForm(new GroupData("grname", "logname", "comm"));
+      submitGroupCreation();
+      returnToGroupList();
+      click(By.name("selected[]"));
+    }
   }
 
   public void editGroup() {

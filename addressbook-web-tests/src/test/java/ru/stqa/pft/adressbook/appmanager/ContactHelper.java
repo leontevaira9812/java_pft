@@ -20,11 +20,19 @@ public class ContactHelper extends BaseHelper {
     type(By.name("mobile"), contactData.telephone());
     type(By.name("email"), contactData.email());
     if (creation) {
-      new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(contactData.group());
+      if (isGroupDropDownEmpty()) {
+        new Select(driver.findElement(By.name("new_group"))).selectByVisibleText("[none]");
+      } else {
+        boolean bb = new Select(driver.findElement(By.name("new_group"))).getOptions().equals(contactData.group());
+        boolean b = new Select(driver.findElement(By.name("new_group"))).getOptions().contains("grname");
+        // new Select(driver.findElement(By.name("new_group"))).getOptions().equals(contactData.group());
+        new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(contactData.group());
+      }
     } else {
       Assert.assertFalse(isElementPresent(By.name("new_group")));
     }
   }
+
 
   public void initNewContact() {
     click(By.linkText("add new"));
@@ -35,8 +43,16 @@ public class ContactHelper extends BaseHelper {
   }
 
   public void selectContact() {
-    click(By.name("selected[]"));
+    if (isElementPresent(By.className("odd")) || isElementPresent(By.className(""))) {
+      click(By.name("selected[]"));
+    } //else {
+    // initNewContact();
+    //fillDataToContact(new ContactData("ira", "leon", "uly",
+    //     "89876542354", "test@example.com", "grname"), true);
+    // saveContact();
+
   }
+
 
   public void deleteContact() {
     click(By.xpath("//input[@value='Delete']"));

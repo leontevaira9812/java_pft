@@ -3,6 +3,7 @@ package ru.stqa.pft.adressbook.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Select;
 
 public class BaseHelper {
   protected WebDriver driver;
@@ -29,5 +30,14 @@ public class BaseHelper {
       return false;
     }
 
+  }
+
+  protected boolean isGroupDropDownEmpty() {
+    int n = new Select(driver.findElement(By.name("new_group"))).getOptions().size();
+    if (n > 1) {
+      return false;
+    } else {
+      return true;
+    }
   }
 }
