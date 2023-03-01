@@ -2,8 +2,10 @@ package ru.stqa.pft.adressbook.appmanager;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.BrowserType;
 
-import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
 
@@ -13,6 +15,12 @@ public class ApplicationManager {
   private GroupHelper groupHelper;
   private ContactHelper contactHelper;
   public JavascriptExecutor js;
+  private String browser;
+
+  public ApplicationManager(String browser) {
+
+    this.browser = browser;
+  }
 
 
   public boolean isElementPresent(By by) {
@@ -34,9 +42,14 @@ public class ApplicationManager {
   }
 
   public void init() {
-    System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\chromedriver.exe");
-    driver = new ChromeDriver();
-    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+    //  System.setProperty("webdriver.firefox.driver", "C:\\Program Files\\geckodriver.exe");
+    //  System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\chromedriver.exe");
+    if (browser == BrowserType.FIREFOX) {
+      driver = new FirefoxDriver();
+    } else if (browser == BrowserType.CHROME) {
+      driver = new ChromeDriver();
+    }
+    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     js = (JavascriptExecutor) driver;
     groupHelper = new GroupHelper(driver);
     navigationHelper = new NavigationHelper(driver);
