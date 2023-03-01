@@ -33,6 +33,7 @@ public class GroupHelper extends BaseHelper {
   }
 
   public void selectGroup() {
+    //isElementPresent(By.className("group"));
     click(By.name("selected[]"));
   }
 

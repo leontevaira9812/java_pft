@@ -49,7 +49,7 @@ public class ApplicationManager {
     } else if (browser == BrowserType.CHROME) {
       driver = new ChromeDriver();
     }
-    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     js = (JavascriptExecutor) driver;
     groupHelper = new GroupHelper(driver);
     navigationHelper = new NavigationHelper(driver);
