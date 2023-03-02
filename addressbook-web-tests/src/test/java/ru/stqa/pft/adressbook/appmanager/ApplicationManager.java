@@ -44,9 +44,9 @@ public class ApplicationManager {
   public void init() {
     //  System.setProperty("webdriver.firefox.driver", "C:\\Program Files\\geckodriver.exe");
     //  System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\chromedriver.exe");
-    if (browser == BrowserType.FIREFOX) {
+    if (browser.equals(BrowserType.FIREFOX)) {
       driver = new FirefoxDriver();
-    } else if (browser == BrowserType.CHROME) {
+    } else if (browser.equals(BrowserType.CHROME)) {
       driver = new ChromeDriver();
     }
     driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);

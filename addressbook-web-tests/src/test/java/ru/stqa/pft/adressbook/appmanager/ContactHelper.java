@@ -67,6 +67,7 @@ public class ContactHelper extends BaseHelper {
               "89876542354", "test@example.com", "grname"), true);
       saveContact();
       click(By.linkText("home"));
+    
     }
 
   }
