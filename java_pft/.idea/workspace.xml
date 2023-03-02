@@ -201,7 +201,7 @@
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/adressbook/appmanager/ContactHelper.java</url>
-          <line>26</line>
+          <line>40</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>

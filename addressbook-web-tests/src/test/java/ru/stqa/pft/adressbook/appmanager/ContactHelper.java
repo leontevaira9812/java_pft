@@ -2,9 +2,12 @@ package ru.stqa.pft.adressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.adressbook.model.ContactData;
+
+import java.util.List;
 
 public class ContactHelper extends BaseHelper {
 
@@ -23,9 +26,18 @@ public class ContactHelper extends BaseHelper {
       if (isGroupDropDownEmpty()) {
         new Select(driver.findElement(By.name("new_group"))).selectByVisibleText("[none]");
       } else {
-        boolean bb = new Select(driver.findElement(By.name("new_group"))).getOptions().equals(contactData.group());
-        boolean b = new Select(driver.findElement(By.name("new_group"))).getOptions().contains("grname");
-        // new Select(driver.findElement(By.name("new_group"))).getOptions().equals(contactData.group());
+
+        WebElement select = driver.findElement(By.name("new_group"));
+        Select dropDown = new Select(select);
+        List<WebElement> Options = dropDown.getOptions();
+        for (WebElement option : Options) {
+          String name;
+          name = option.getText();
+          if (option.getText().equals(contactData.group())) {
+            option.click();
+          }
+        }
+       
         new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(contactData.group());
       }
     } else {
