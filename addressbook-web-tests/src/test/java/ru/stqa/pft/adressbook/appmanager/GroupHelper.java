@@ -1,6 +1,7 @@
 package ru.stqa.pft.adressbook.appmanager;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import ru.stqa.pft.adressbook.model.GroupData;
 
@@ -50,5 +51,15 @@ public class GroupHelper extends BaseHelper {
 
   public void submitGroupModification() {
     click(By.name("update"));
+  }
+
+  public boolean checkIsGroupExist(By locator) {
+    try {
+      driver.findElement(locator);
+      return true;
+    } catch (NoSuchElementException ex) {
+      return false;
+    }
+
   }
 }

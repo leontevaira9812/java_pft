@@ -2,12 +2,9 @@ package ru.stqa.pft.adressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.adressbook.model.ContactData;
-
-import java.util.List;
 
 public class ContactHelper extends BaseHelper {
 
@@ -23,28 +20,35 @@ public class ContactHelper extends BaseHelper {
     type(By.name("mobile"), contactData.telephone());
     type(By.name("email"), contactData.email());
     if (creation) {
-      if (isGroupDropDownEmpty()) {
-        new Select(driver.findElement(By.name("new_group"))).selectByVisibleText("[none]");
-      } else {
+      new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(contactData.group());
+    }
+    // проверка на то существует ли переданная группа в выпадающем списке,
+    // закоментировала потому что заменила это проверкой на существование группы на странице групс в начале теста
+    //  if (!isGroupExistInContactCreationForm(contactData.group())) {
+    //    new Select(driver.findElement(By.name("new_group"))).selectByVisibleText("[none]");
+    //  } else {
+    //    new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(contactData.group());
+    //  }
 
-        WebElement select = driver.findElement(By.name("new_group"));
-        Select dropDown = new Select(select);
-        List<WebElement> Options = dropDown.getOptions();
-        for (WebElement option : Options) {
-          String name;
-          name = option.getText();
-          if (option.getText().equals(contactData.group())) {
-            option.click();
-          }
-        }
-       
-        new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(contactData.group());
-      }
-    } else {
+    else {
       Assert.assertFalse(isElementPresent(By.name("new_group")));
     }
   }
-
+  // функция на проверку существует ли заданная группа в выпадающем списке
+  /*private boolean isGroupExistInContactCreationForm(String group) {
+    WebElement select = driver.findElement(By.name("new_group"));
+    Select dropDown = new Select(select);
+    List<WebElement> Options = dropDown.getOptions();
+    for (WebElement option : Options) {
+      String name;
+      name = option.getText();
+      if (option.getText().equals(group)) {
+        return true;
+      }
+    }
+    return false;
+  }
+*/
 
   public void initNewContact() {
     click(By.linkText("add new"));
@@ -55,13 +59,15 @@ public class ContactHelper extends BaseHelper {
   }
 
   public void selectContact() {
-    if (isElementPresent(By.className("odd")) || isElementPresent(By.className(""))) {
+    if (isElementPresent(By.className("odd")) || isElementPresent(By.name("entry"))) {
       click(By.name("selected[]"));
-    } //else {
-    // initNewContact();
-    //fillDataToContact(new ContactData("ira", "leon", "uly",
-    //     "89876542354", "test@example.com", "grname"), true);
-    // saveContact();
+    } else {
+      initNewContact();
+      fillDataToContact(new ContactData("ira", "leon", "uly",
+              "89876542354", "test@example.com", "grname"), true);
+      saveContact();
+      click(By.linkText("home"));
+    }
 
   }
 
@@ -75,6 +81,13 @@ public class ContactHelper extends BaseHelper {
   }
 
   public void clickEditIcon() {
+    if (!isElementPresent(By.name("entry"))) {
+      initNewContact();
+      fillDataToContact(new ContactData("ira", "leon", "uly",
+              "89876542354", "test@example.com", "grname"), true);
+      saveContact();
+      click(By.linkText("home"));
+    }
     click(By.xpath("//img[@alt='Edit']"));
   }
 
