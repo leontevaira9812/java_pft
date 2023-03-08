@@ -17,6 +17,7 @@ public class ApplicationManager {
   public JavascriptExecutor js;
   private String browser;
 
+
   public ApplicationManager(String browser) {
 
     this.browser = browser;

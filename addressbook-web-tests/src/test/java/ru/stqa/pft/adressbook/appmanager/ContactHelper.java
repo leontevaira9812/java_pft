@@ -8,9 +8,11 @@ import ru.stqa.pft.adressbook.model.ContactData;
 
 public class ContactHelper extends BaseHelper {
 
+  // protected final ApplicationManager app = new ApplicationManager(BrowserType.FIREFOX);
 
   public ContactHelper(WebDriver driver) {
     super(driver);
+
   }
 
   public void fillDataToContact(ContactData contactData, boolean creation) {
@@ -67,7 +69,10 @@ public class ContactHelper extends BaseHelper {
               "89876542354", "test@example.com", "grname"), true);
       saveContact();
       click(By.linkText("home"));
-    
+
+
+      // app.getNavigationHelper().returnToHomePage();
+
     }
 
   }

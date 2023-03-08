@@ -14,7 +14,7 @@ public class ContactCreation extends TestBase {
     app.getNavigationHelper().goToGroupPage();
     if (!app.getGroupHelper().checkIsGroupExist(By.xpath("//span[contains(text(),'grname')]"))) {
       app.getGroupHelper().initNewGroup();
-      app.getGroupHelper().fillGroupForm(new GroupData("grname", "logname", "comm"));
+      app.getGroupHelper().fillGroupForm(new GroupData(0, "grname", "logname", "comm"));
       app.getGroupHelper().submitGroupCreation();
       app.getNavigationHelper().returnToHomePage();
     }
