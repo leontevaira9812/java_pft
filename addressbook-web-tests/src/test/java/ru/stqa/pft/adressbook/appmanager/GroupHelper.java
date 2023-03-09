@@ -38,15 +38,7 @@ public class GroupHelper extends BaseHelper {
   }
 
   public void selectGroup(int index) {
-    if (isElementPresent(By.className("group"))) {
-      driver.findElements(By.name("selected[]")).get(index).click();
-    } else {
-      initNewGroup();
-      fillGroupForm(new GroupData(0, "grname", "logname", "comm"));
-      submitGroupCreation();
-      returnToGroupList();
-      click(By.name("selected[]"));
-    }
+    driver.findElements(By.name("selected[]")).get(index).click();
   }
 
   public void editGroup() {

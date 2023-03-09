@@ -2,9 +2,13 @@ package ru.stqa.pft.adressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.adressbook.model.ContactData;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ContactHelper extends BaseHelper {
 
@@ -65,7 +69,7 @@ public class ContactHelper extends BaseHelper {
       click(By.name("selected[]"));
     } else {
       initNewContact();
-      fillDataToContact(new ContactData("ira", "leon", "uly",
+      fillDataToContact(new ContactData(0, "ira", "leon", "uly",
               "89876542354", "test@example.com", "grname"), true);
       saveContact();
       click(By.linkText("home"));
@@ -86,18 +90,36 @@ public class ContactHelper extends BaseHelper {
     driver.switchTo().alert().accept();
   }
 
-  public void clickEditIcon() {
-    if (!isElementPresent(By.name("entry"))) {
+  public void clickEditIcon(int index) {
+   /* if (!isElementPresent(By.name("entry"))) {
       initNewContact();
-      fillDataToContact(new ContactData("ira", "leon", "uly",
+      fillDataToContact(new ContactData(0, "ira", "leon", "uly",
               "89876542354", "test@example.com", "grname"), true);
       saveContact();
       click(By.linkText("home"));
     }
-    click(By.xpath("//img[@alt='Edit']"));
+    */
+    // click(By.xpath("//img[@alt='Edit']"));
+    click(By.xpath("//*[@id='maintable']/tbody/tr[" + (index) + "]/td[8]/a"));
   }
 
   public void submitContactModification() {
     click(By.name("update"));
+  }
+
+
+  public List<ContactData> getContactList() {
+    List<ContactData> contacts = new ArrayList<ContactData>();
+    List<WebElement> rows = driver.findElements(By.cssSelector("table tr"));
+    for (int i = 1; i < rows.size(); i++) {
+      // for (WebElement row : rows) {
+      List<WebElement> cells = rows.get(i).findElements(By.tagName("td"));
+      int id = Integer.parseInt(rows.get(i).findElement(By.tagName("input")).getAttribute("value"));
+      String name = cells.get(2).getText();
+      String lastname = cells.get(1).getText();
+      ContactData contact = new ContactData(id, name, lastname, null, null, null, null);
+      contacts.add(contact);
+    }
+    return contacts;
   }
 }

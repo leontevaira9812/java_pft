@@ -4,6 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import ru.stqa.pft.adressbook.model.GroupData;
 
+import java.util.HashSet;
 import java.util.List;
 
 
@@ -24,9 +25,9 @@ public class GroupCreationTests extends TestBase {
     // int after = app.getGroupHelper().getGroupCount();
     Assert.assertEquals(after.size(), before.size() + 1);
     //  app.getSessionHelper().logout();
-  }
-}
-   /* int max = 0;
+
+
+    int max = 0;
     for (GroupData g : after) {
       if (g.getId() > max) {
         max = g.getId();
@@ -36,5 +37,6 @@ public class GroupCreationTests extends TestBase {
     before.add(group);
     Assert.assertEquals(new HashSet<>(after), new HashSet<>(before));
   }
-*/
+}
+
 
