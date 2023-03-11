@@ -14,17 +14,18 @@ public class ContactModification extends TestBase {
   public void testContactModification() {
     ContactData contactCreation = new ContactData(0, "ira", "leon", "uly",
             "89876542354", "test@example.com", "grname");
+    app.getNavigationHelper().goToGroupPage();
+    if (!app.getGroupHelper().checkIsGroupExist(By.cssSelector("span.group"))) {
+      app.getGroupHelper().initNewGroup();
+      app.getGroupHelper().fillGroupForm(new GroupData(0, "grname", "lll", "comm"));
+      app.getGroupHelper().submitGroupCreation();
+    }
+    app.getNavigationHelper().returnToHomePage();
     if (!app.isElementPresent(By.name("entry"))) {
-      app.getNavigationHelper().goToGroupPage();
-      if (!app.getGroupHelper().checkIsGroupExist(By.cssSelector("span.group"))) {
-        app.getGroupHelper().initNewGroup();
-        app.getGroupHelper().fillGroupForm(new GroupData(0, "grname", "lll", "comm"));
-        app.getGroupHelper().submitGroupCreation();
-      }
-      app.getNavigationHelper().returnToHomePage();
       app.getContactHelper().initNewContact();
       app.getContactHelper().fillDataToContact(contactCreation, true);
       app.getContactHelper().saveContact();
+      app.getNavigationHelper().returnToHomePage();
     }
     List<ContactData> before = app.getContactHelper().getContactList();
     app.getContactHelper().clickEditIcon(before.size() + 1);

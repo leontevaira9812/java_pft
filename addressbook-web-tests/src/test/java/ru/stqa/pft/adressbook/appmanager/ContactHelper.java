@@ -64,8 +64,9 @@ public class ContactHelper extends BaseHelper {
     click(By.xpath("//div[@id='content']/form/input[21]"));
   }
 
-  public void selectContact() {
-    if (isElementPresent(By.className("odd")) || isElementPresent(By.name("entry"))) {
+  public void selectContact(int index) {
+    driver.findElements(By.name("selected[]")).get(index).click();
+    /*if (isElementPresent(By.className("odd")) || isElementPresent(By.name("entry"))) {
       click(By.name("selected[]"));
     } else {
       initNewContact();
@@ -73,11 +74,7 @@ public class ContactHelper extends BaseHelper {
               "89876542354", "test@example.com", "grname"), true);
       saveContact();
       click(By.linkText("home"));
-
-
-      // app.getNavigationHelper().returnToHomePage();
-
-    }
+    } */
 
   }
 
