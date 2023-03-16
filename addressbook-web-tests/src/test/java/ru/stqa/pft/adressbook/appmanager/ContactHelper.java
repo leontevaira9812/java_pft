@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.adressbook.model.ContactData;
+import ru.stqa.pft.adressbook.tests.TestBase;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -105,7 +106,7 @@ public class ContactHelper extends BaseHelper {
   }
 
 
-  public List<ContactData> getContactList() {
+  public List<ContactData> list() {
     List<ContactData> contacts = new ArrayList<ContactData>();
     List<WebElement> rows = driver.findElements(By.cssSelector("table tr"));
     for (int i = 1; i < rows.size(); i++) {
@@ -118,5 +119,25 @@ public class ContactHelper extends BaseHelper {
       contacts.add(contact);
     }
     return contacts;
+  }
+
+  public void create(ContactData contactCreation) {
+    initNewContact();
+    fillDataToContact(contactCreation, true);
+    saveContact();
+    TestBase.app.goTo().returnToHomePage();
+  }
+
+  public void modify(ContactData contactModification, int index) {
+    clickEditIcon(index);
+    fillDataToContact(contactModification, false);
+    submitContactModification();
+    TestBase.app.goTo().returnToHomePage();
+  }
+
+  public void delete(List<ContactData> before) {
+    selectContact(before.size() - 1);
+    deleteContact();
+    closeAlert();
   }
 }

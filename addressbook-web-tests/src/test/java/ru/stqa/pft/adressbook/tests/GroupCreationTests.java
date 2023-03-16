@@ -12,28 +12,20 @@ public class GroupCreationTests extends TestBase {
 
   @Test
   public void testGroupCreation() throws Exception {
-    app.getNavigationHelper().goToGroupPage();
-    List<GroupData> before = app.getGroupHelper().getGroupList();
-    //  int before = app.getGroupHelper().getGroupCount();
-    app.getGroupHelper().initNewGroup();
-    GroupData group = new GroupData(0, "2", "logname", "comm");
-    app.getGroupHelper().fillGroupForm(group);
-    app.getGroupHelper().submitGroupCreation();
-    app.getGroupHelper().returnToGroupList();
-    List<GroupData> after = app.getGroupHelper().getGroupList();
-
-    // int after = app.getGroupHelper().getGroupCount();
+    app.goTo().groupPage();
+    List<GroupData> before = app.group().list();
+    // GroupData group = new GroupData(0, "2", "logname", "comm");
+    GroupData group = new GroupData().withName("creatinon").withLogo("logname").withComment("comment");
+    app.group().create(group);
+    List<GroupData> after = app.group().list();
     Assert.assertEquals(after.size(), before.size() + 1);
-    //  app.getSessionHelper().logout();
-
-
     int max = 0;
     for (GroupData g : after) {
       if (g.getId() > max) {
         max = g.getId();
       }
     }
-    group.setId(max);
+    group.withId(max);
     before.add(group);
     Assert.assertEquals(new HashSet<>(after), new HashSet<>(before));
   }

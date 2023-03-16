@@ -101,30 +101,32 @@ public class GroupData {
 import java.util.Objects;
 
 public class GroupData {
-  private int id;
-  private final String name;
-  private final String logo;
-  private final String comment;
+  public int id = Integer.MAX_VALUE;
+  public String name;
+  public String logo;
+  public String comment;
 
-  public GroupData(int id, String name, String logo, String comment) {
-    this.id = id;
+
+  public GroupData withName(String name) {
     this.name = name;
-    this.logo = logo;
+    return this;
+  }
+
+  public GroupData withComment(String comment) {
     this.comment = comment;
-
+    return this;
   }
 
 
-  public String name() {
-    return name;
+  public GroupData withLogo(String logo) {
+    this.logo = logo;
+    return this;
+
   }
 
-  public String comment() {
-    return comment;
-  }
-
-  public String logo() {
-    return comment;
+  public GroupData withId(int id) {
+    this.id = id;
+    return this;
   }
 
   public int id() {
@@ -135,9 +137,6 @@ public class GroupData {
     return id;
   }
 
-  public void setId(int id) {
-    this.id = id;
-  }
 
   @Override
   public String toString() {
@@ -160,5 +159,17 @@ public class GroupData {
     return Objects.hash(id, name);
   }
 
+
+  public String name() {
+    return name;
+  }
+
+  public String logo() {
+    return logo;
+  }
+
+  public String comment() {
+    return comment;
+  }
 }
 
