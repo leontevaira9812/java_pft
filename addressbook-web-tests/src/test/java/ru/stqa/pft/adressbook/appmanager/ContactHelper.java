@@ -9,7 +9,9 @@ import ru.stqa.pft.adressbook.model.ContactData;
 import ru.stqa.pft.adressbook.tests.TestBase;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class ContactHelper extends BaseHelper {
 
@@ -121,6 +123,21 @@ public class ContactHelper extends BaseHelper {
     return contacts;
   }
 
+  public Set<ContactData> all() {
+    Set<ContactData> contacts = new HashSet<ContactData>();
+    List<WebElement> rows = driver.findElements(By.cssSelector("table tr"));
+    for (int i = 1; i < rows.size(); i++) {
+      // for (WebElement row : rows) {
+      List<WebElement> cells = rows.get(i).findElements(By.tagName("td"));
+      int id = Integer.parseInt(rows.get(i).findElement(By.tagName("input")).getAttribute("value"));
+      String name = cells.get(2).getText();
+      String lastname = cells.get(1).getText();
+      ContactData contact = new ContactData(id, name, lastname, null, null, null, null);
+      contacts.add(contact);
+    }
+    return contacts;
+  }
+
   public void create(ContactData contactCreation) {
     initNewContact();
     fillDataToContact(contactCreation, true);
@@ -139,5 +156,15 @@ public class ContactHelper extends BaseHelper {
     selectContact(before.size() - 1);
     deleteContact();
     closeAlert();
+  }
+
+  public void delete(ContactData group) {
+    selectContactById(group.getId());
+    deleteContact();
+    closeAlert();
+  }
+
+  private void selectContactById(int id) {
+    driver.findElement(By.cssSelector("input[value='" + id + "']")).click();
   }
 }

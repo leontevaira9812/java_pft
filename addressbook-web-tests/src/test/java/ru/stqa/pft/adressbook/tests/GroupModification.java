@@ -6,8 +6,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.adressbook.model.GroupData;
 
-import java.util.Comparator;
-import java.util.List;
+import java.util.Set;
 
 
 @Test
@@ -24,22 +23,18 @@ public class GroupModification extends TestBase {
   }
 
   public void testGroupModification() throws Exception {
-    List<GroupData> before = app.group().list();
+    Set<GroupData> before = app.group().all();
+    GroupData modifiedGroup = before.iterator().next();
     //GroupData group = new GroupData(before.get(before.size() - 1).getId(), "grnameModificatio1n", "logname", "comm");
-    GroupData group = new GroupData().withId(before.get(before.size() - 1).getId()).withName("grnameModificatio1n").
+    GroupData group = new GroupData().withId(modifiedGroup.getId()).withName("grnameModificatio1n23").
             withComment("sd").withLogo("logo");
-    int index = before.size() - 1;
-    app.group().modify(group, index);
-    List<GroupData> after = app.group().list();
+    app.group().modifyGroup(group);
+    Set<GroupData> after = app.group().all();
     Assert.assertEquals(after.size(), before.size());
-
-    before.remove(index);
+    before.remove(modifiedGroup);
     before.add(group);
-    Comparator<? super GroupData> byId = (g1, g2) -> Integer.compare(g1.getId(), g2.getId());
-    before.sort(byId);
-    after.sort(byId);
     Assert.assertEquals(before, after);
-    //Assert.assertEquals(new HashSet<>(before), new HashSet<>(after));
+
   }
 
 

@@ -7,7 +7,9 @@ import org.openqa.selenium.WebElement;
 import ru.stqa.pft.adressbook.model.GroupData;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class GroupHelper extends BaseHelper {
 
@@ -39,6 +41,10 @@ public class GroupHelper extends BaseHelper {
 
   public void selectGroup(int index) {
     driver.findElements(By.name("selected[]")).get(index).click();
+  }
+
+  public void selectGroupById(int id) {
+    driver.findElement(By.cssSelector("input[value='" + id + "']")).click();
   }
 
   public void editGroup() {
@@ -73,8 +79,19 @@ public class GroupHelper extends BaseHelper {
       // GroupData group = new GroupData().withId(id).withName(name);
       groups.add(new GroupData().withId(id).withName(name));
     }
+    return groups;
+  }
 
-
+  public Set<GroupData> all() {
+    Set<GroupData> groups = new HashSet<GroupData>();
+    List<WebElement> elements = driver.findElements(By.cssSelector("span.group"));
+    for (WebElement element : elements) {
+      String name = element.getText();
+      int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
+      //  GroupData group = new GroupData(id, name, null, null);
+      // GroupData group = new GroupData().withId(id).withName(name);
+      groups.add(new GroupData().withId(id).withName(name));
+    }
     return groups;
   }
 
@@ -96,6 +113,20 @@ public class GroupHelper extends BaseHelper {
   public void delete(List<GroupData> before) {
     selectGroup(before.size() - 1);
     deleteGroup();
+    returnToGroupList();
+  }
+
+  public void delete(GroupData group) {
+    selectGroupById(group.getId());
+    deleteGroup();
+    returnToGroupList();
+  }
+
+  public void modifyGroup(GroupData group) {
+    selectGroupById(group.getId());
+    editGroup();
+    fillGroupForm(group);
+    submitGroupModification();
     returnToGroupList();
   }
 }
