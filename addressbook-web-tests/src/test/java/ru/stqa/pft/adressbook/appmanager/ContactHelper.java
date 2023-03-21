@@ -100,7 +100,10 @@ public class ContactHelper extends BaseHelper {
     }
     */
     // click(By.xpath("//img[@alt='Edit']"));
-    click(By.xpath("//*[@id='maintable']/tbody/tr[" + (index) + "]/td[8]/a"));
+    // click(By.xpath("//*[@id='maintable']/tbody/tr[" + (index) + "]/td[8]/a"));
+    //  driver.findElement(By.cssSelector("input[value='" + index + "']")).findElements(By.xpath("//*[@id='maintable']/tbody/tr[" + (index) + "]/td[8]/a"));
+    String url = "edit.php?id=";
+    driver.findElement(By.xpath("//a[@href=\"" + url + index + "\"]")).click();
   }
 
   public void submitContactModification() {
@@ -145,8 +148,8 @@ public class ContactHelper extends BaseHelper {
     TestBase.app.goTo().returnToHomePage();
   }
 
-  public void modify(ContactData contactModification, int index) {
-    clickEditIcon(index);
+  public void modify(ContactData contactModification) {
+    clickEditIcon(contactModification.getId());
     fillDataToContact(contactModification, false);
     submitContactModification();
     TestBase.app.goTo().returnToHomePage();

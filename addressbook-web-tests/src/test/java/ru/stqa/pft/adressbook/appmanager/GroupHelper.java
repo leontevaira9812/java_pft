@@ -5,11 +5,10 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import ru.stqa.pft.adressbook.model.GroupData;
+import ru.stqa.pft.adressbook.model.Groups;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class GroupHelper extends BaseHelper {
 
@@ -75,15 +74,13 @@ public class GroupHelper extends BaseHelper {
     for (WebElement element : elements) {
       String name = element.getText();
       int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-      //  GroupData group = new GroupData(id, name, null, null);
-      // GroupData group = new GroupData().withId(id).withName(name);
       groups.add(new GroupData().withId(id).withName(name));
     }
     return groups;
   }
 
-  public Set<GroupData> all() {
-    Set<GroupData> groups = new HashSet<GroupData>();
+  public Groups all() {
+    Groups groups = new Groups();
     List<WebElement> elements = driver.findElements(By.cssSelector("span.group"));
     for (WebElement element : elements) {
       String name = element.getText();
