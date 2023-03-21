@@ -2,7 +2,6 @@ package ru.stqa.pft.adressbook.tests;
 
 import org.hamcrest.CoreMatchers;
 import org.hamcrest.MatcherAssert;
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -16,8 +15,8 @@ public class GroupModification extends TestBase {
   @BeforeMethod
   public void ensurePreconditions() {
     app.goTo().groupPage();
-    // if (app.group().list().size() == 0) {    }
-    if (!app.group().checkIsGroupExist(By.className("group"))) {
+    if (app.group().all().size() == 0) {
+      // if (!app.group().checkIsGroupExist(By.className("group"))) {
       //app.group().create(new GroupData(0, "grname", "logo", "comm"));
       app.group().create(new GroupData().withName("grname").withLogo("logo").withComment("comm"));
     }

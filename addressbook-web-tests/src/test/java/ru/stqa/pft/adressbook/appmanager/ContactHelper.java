@@ -125,8 +125,13 @@ public class ContactHelper extends BaseHelper {
     return contacts;
   }
 
+  private Contacts contactCache = null;
+
   public Contacts all() {
-    Contacts contacts = new Contacts();
+    if (contactCache != null) {
+      return new Contacts(contactCache);
+    }
+    contactCache = new Contacts();
     List<WebElement> rows = driver.findElements(By.cssSelector("table tr"));
     for (int i = 1; i < rows.size(); i++) {
       // for (WebElement row : rows) {
@@ -135,9 +140,9 @@ public class ContactHelper extends BaseHelper {
       String name = cells.get(2).getText();
       String lastname = cells.get(1).getText();
       ContactData contact = new ContactData(id, name, lastname, null, null, null, null);
-      contacts.add(contact);
+      contactCache.add(contact);
     }
-    return contacts;
+    return new Contacts(contactCache);
   }
 
   public void create(ContactData contactCreation) {
@@ -151,6 +156,7 @@ public class ContactHelper extends BaseHelper {
     clickEditIcon(contactModification.getId());
     fillDataToContact(contactModification, false);
     submitContactModification();
+    contactCache = null;
     TestBase.app.goTo().returnToHomePage();
   }
 
@@ -163,6 +169,7 @@ public class ContactHelper extends BaseHelper {
   public void delete(ContactData group) {
     selectContactById(group.getId());
     deleteContact();
+    contactCache = null;
     closeAlert();
   }
 
