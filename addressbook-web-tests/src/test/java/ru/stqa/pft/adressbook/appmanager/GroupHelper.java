@@ -17,7 +17,7 @@ public class GroupHelper extends BaseHelper {
   }
 
   public void returnToGroupList() {
-    click(By.linkText("group page"));
+    click(By.linkText("groups"));
   }
 
   public void submitGroupCreation() {
@@ -64,7 +64,7 @@ public class GroupHelper extends BaseHelper {
 
   }
 
-  public int getGroupCount() {
+  public int count() {
     return driver.findElements(By.name("selected[]")).size();
   }
 

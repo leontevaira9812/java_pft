@@ -14,8 +14,8 @@ public class ContactDelete extends TestBase {
 
   @BeforeMethod
   public void ensurePreconditions() {
-    ContactData contactCreation = new ContactData(0, "ira", "leon", "uly",
-            "89876542354", "test@example.com", "grname");
+    ContactData contactCreation = new ContactData().withName("ira").withLastname("leon").withAddress("uly").withMobilePhone("111")
+            .withEmail("test@example.com").withGroup("grname");
     app.goTo().returnToHomePage();
     if (!app.isElementPresent(By.name("entry"))) {
       app.contact().create(contactCreation);

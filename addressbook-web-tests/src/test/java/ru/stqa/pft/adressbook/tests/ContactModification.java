@@ -12,8 +12,8 @@ import ru.stqa.pft.adressbook.model.Contacts;
 public class ContactModification extends TestBase {
   @BeforeMethod
   public void ensurePreconditions() {
-    ContactData contactCreation = new ContactData(0, "ira", "leon", "uly",
-            "89876542354", "test@example.com", "grname");
+    ContactData contactCreation = new ContactData().withName("ira").withLastname("leon").withAddress("uly").withMobilePhone("111")
+            .withEmail("test@example.com").withGroup("grname");
    /* app.getNavigationHelper().goToGroupPage();
     if (!app.getGroupHelper().checkIsGroupExist(By.className("group"))) {
       app.getGroupHelper().createGroup();
@@ -28,8 +28,8 @@ public class ContactModification extends TestBase {
   public void testContactModification() {
     Contacts before = app.contact().all();
     ContactData modifiedContact = before.iterator().next();
-    ContactData contactModification = new ContactData(modifiedContact.getId(), "Modificated", "test",
-            "uly", "89876542354", "test@example.com", null);
+    ContactData contactModification = new ContactData().withId(modifiedContact.getId()).withName("Modificated").withLastname("test")
+            .withAddress("uly").withMobilePhone("111").withHomePhone("222").withEmail("test@example.com");
     app.contact().modify(contactModification);
     Contacts after = app.contact().all();
     Assert.assertEquals(after.size(), before.size());

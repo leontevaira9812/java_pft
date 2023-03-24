@@ -27,8 +27,10 @@ public class ContactCreation extends TestBase {
   @Test
   public void testContactCreation() throws Exception {
     Contacts before = app.contact().all();
-    ContactData contact = new ContactData(Integer.MAX_VALUE, "ira", "leon", "uly",
-            "89876542354", "test@example.com", "grname");
+    // ContactData contact = new ContactData(Integer.MAX_VALUE, "ira", "leon", "uly",
+    // "111", "222", "333", "test@example.com", "grname");
+    ContactData contact = new ContactData().withName("ira").withLastname("leon").withAddress("uly").withFirstEmail("email1")
+            .withSecondEmail("email2").withMobilePhone("111").withHomePhone("222").withWorkPhone("333").withGroup("grname");
     app.contact().create(contact);
     Contacts after = app.contact().all();
     Assert.assertEquals(after.size(), before.size() + 1);

@@ -9,7 +9,6 @@ import ru.stqa.pft.adressbook.model.ContactData;
 import ru.stqa.pft.adressbook.model.Contacts;
 import ru.stqa.pft.adressbook.tests.TestBase;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ContactHelper extends BaseHelper {
@@ -25,8 +24,12 @@ public class ContactHelper extends BaseHelper {
     type(By.name("firstname"), contactData.name());
     type(By.name("lastname"), contactData.lastname());
     type(By.name("address"), contactData.city());
-    type(By.name("mobile"), contactData.telephone());
-    type(By.name("email"), contactData.email());
+    type(By.name("home"), contactData.homePhone());
+    type(By.name("mobile"), contactData.mobilePhone());
+    type(By.name("work"), contactData.workPhone());
+    type(By.name("email"), contactData.firstEmail());
+    type(By.name("email2"), contactData.secondEmail());
+    type(By.name("email3"), contactData.thirdEmail());
     if (creation) {
       new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(contactData.group());
     }
@@ -110,28 +113,29 @@ public class ContactHelper extends BaseHelper {
   }
 
 
-  public List<ContactData> list() {
-    List<ContactData> contacts = new ArrayList<ContactData>();
-    List<WebElement> rows = driver.findElements(By.cssSelector("table tr"));
-    for (int i = 1; i < rows.size(); i++) {
-      // for (WebElement row : rows) {
-      List<WebElement> cells = rows.get(i).findElements(By.tagName("td"));
-      int id = Integer.parseInt(rows.get(i).findElement(By.tagName("input")).getAttribute("value"));
-      String name = cells.get(2).getText();
-      String lastname = cells.get(1).getText();
-      ContactData contact = new ContactData(id, name, lastname, null, null, null, null);
-      contacts.add(contact);
-    }
-    return contacts;
-  }
-
+  /* public List<ContactData> list() {
+     List<ContactData> contacts = new ArrayList<ContactData>();
+     List<WebElement> rows = driver.findElements(By.cssSelector("table tr"));
+     for (int i = 1; i < rows.size(); i++) {
+       // for (WebElement row : rows) {
+       List<WebElement> cells = rows.get(i).findElements(By.tagName("td"));
+       int id = Integer.parseInt(rows.get(i).findElement(By.tagName("input")).getAttribute("value"));
+       String name = cells.get(2).getText();
+       String lastname = cells.get(1).getText();
+       ContactData contact = new ContactData(id, name, lastname, null, null, null, null, null);
+       contacts.add(contact);
+     }
+     return contacts;
+   }
+ */
   private Contacts contactCache = null;
 
   public Contacts all() {
-    if (contactCache != null) {
+  /*  if (contactCache != null) {
       return new Contacts(contactCache);
     }
-    contactCache = new Contacts();
+    contactCache = new Contacts(); */
+    Contacts contacts = new Contacts();
     List<WebElement> rows = driver.findElements(By.cssSelector("table tr"));
     for (int i = 1; i < rows.size(); i++) {
       // for (WebElement row : rows) {
@@ -139,10 +143,17 @@ public class ContactHelper extends BaseHelper {
       int id = Integer.parseInt(rows.get(i).findElement(By.tagName("input")).getAttribute("value"));
       String name = cells.get(2).getText();
       String lastname = cells.get(1).getText();
-      ContactData contact = new ContactData(id, name, lastname, null, null, null, null);
-      contactCache.add(contact);
+      String address = cells.get(3).getText();
+      // String[] emails = cells.get(4).getText().split("\n");
+      //  String[] phones = cells.get(5).getText().split("\n");
+      String allEmails = cells.get(4).getText();
+      String allPhones = cells.get(5).getText();
+
+      ContactData contact = new ContactData().withId(id).withName(name)
+              .withLastname(lastname).withAddress(address).withAllPhones(allPhones).withAllEmails(allEmails);
+      contacts.add(contact);
     }
-    return new Contacts(contactCache);
+    return contacts;
   }
 
   public void create(ContactData contactCreation) {
@@ -156,7 +167,7 @@ public class ContactHelper extends BaseHelper {
     clickEditIcon(contactModification.getId());
     fillDataToContact(contactModification, false);
     submitContactModification();
-    contactCache = null;
+    // contactCache = null;
     TestBase.app.goTo().returnToHomePage();
   }
 
@@ -169,11 +180,38 @@ public class ContactHelper extends BaseHelper {
   public void delete(ContactData group) {
     selectContactById(group.getId());
     deleteContact();
-    contactCache = null;
+    //contactCache = null;
     closeAlert();
   }
 
   private void selectContactById(int id) {
     driver.findElement(By.cssSelector("input[value='" + id + "']")).click();
+  }
+
+  public ContactData infoFromEditForm(ContactData contact) {
+    initContactModificationById(contact.getId());
+    String firstname = driver.findElement(By.name("firstname")).getAttribute("value");
+    String lastname = driver.findElement(By.name("lastname")).getAttribute("value");
+    String city = driver.findElement(By.name("address")).getAttribute("value");
+    String home = driver.findElement(By.name("home")).getAttribute("value");
+    String mobile = driver.findElement(By.name("mobile")).getAttribute("value");
+    String work = driver.findElement(By.name("work")).getAttribute("value");
+    String firstEmail = driver.findElement(By.name("email")).getAttribute("value");
+    String secondEmail = driver.findElement(By.name("email2")).getAttribute("value");
+    String thirdEmail = driver.findElement(By.name("email3")).getAttribute("value");
+    driver.navigate().back();
+    return new ContactData().withId(contact.getId()).withName(firstname).withLastname(lastname)
+            .withAddress(city).withMobilePhone(mobile).withHomePhone(home).withWorkPhone(work)
+            .withFirstEmail(firstEmail).withSecondEmail(secondEmail).withThirdEmail(thirdEmail);
+  }
+
+  private void initContactModificationById(int id) {
+    WebElement checkbox = driver.findElement(By.cssSelector(String.format("input[value='%s']", id)));
+    WebElement row = checkbox.findElement(By.xpath("../../.."));
+    List<WebElement> cells = row.findElements(By.tagName("td"));
+    cells.get(7).findElement(By.tagName("a")).click();
+
+    //driver.findElement(By.xpath(String.format("input[@value='s%']/../../td[8]/a", id))).click();
+    // driver.findElement(By.cssSelector(String.format("a[href='edit.php?id=s%']",id))).click();
   }
 }
