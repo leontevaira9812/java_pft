@@ -54,9 +54,9 @@ public class GroupHelper extends BaseHelper {
     click(By.name("update"));
   }
 
-  public boolean checkIsGroupExist(By locator) {
+  public boolean checkIsGroupExist() {
     try {
-      driver.findElement(locator);
+      driver.findElement(By.className("group"));
       return true;
     } catch (NoSuchElementException ex) {
       return false;

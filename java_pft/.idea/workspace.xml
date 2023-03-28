@@ -86,7 +86,7 @@
       <recent name="ru.stqa.pft.sandbox" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.ContactPhoneTests">
+  <component name="RunManager" selected="TestNG.ContactDelete">
     <configuration name="ContactCreation" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="addressbook-web-tests.test" />
       <extension name="coverage">
@@ -97,6 +97,23 @@
       </extension>
       <option name="PACKAGE_NAME" value="ru.stqa.pft.adressbook.tests" />
       <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.adressbook.tests.ContactCreation" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ContactDelete" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="addressbook-web-tests.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.stqa.pft.adressbook.tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ru.stqa.pft.adressbook.tests" />
+      <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.adressbook.tests.ContactDelete" />
       <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
@@ -155,31 +172,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GroupCreationTests.testBadGroupCreation" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="addressbook-web-tests.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ru.stqa.pft.adressbook.tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="ru.stqa.pft.adressbook.tests" />
-      <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.adressbook.tests.GroupCreationTests" />
-      <option name="METHOD_NAME" value="testBadGroupCreation" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.ContactPhoneTests" />
+        <item itemvalue="TestNG.ContactDelete" />
         <item itemvalue="TestNG.ContactModification" />
+        <item itemvalue="TestNG.ContactPhoneTests" />
         <item itemvalue="TestNG.ContactCreation" />
         <item itemvalue="TestNG.GroupCreationTests" />
-        <item itemvalue="TestNG.GroupCreationTests.testBadGroupCreation" />
       </list>
     </recent_temporary>
   </component>
@@ -212,22 +211,22 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/adressbook/tests/ContactCreation.java</url>
-          <line>18</line>
+          <line>17</line>
           <option name="timeStamp" value="27" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/adressbook/tests/ContactDelete.java</url>
-          <line>28</line>
+          <line>27</line>
           <option name="timeStamp" value="28" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/adressbook/tests/ContactModification.java</url>
-          <line>28</line>
+          <line>22</line>
           <option name="timeStamp" value="32" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/adressbook/appmanager/ContactHelper.java</url>
-          <line>106</line>
+          <line>108</line>
           <option name="timeStamp" value="33" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -237,12 +236,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/adressbook/tests/ContactCreation.java</url>
-          <line>34</line>
+          <line>32</line>
           <option name="timeStamp" value="35" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/adressbook/tests/ContactCreation.java</url>
-          <line>33</line>
+          <line>31</line>
           <option name="timeStamp" value="43" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -259,6 +258,11 @@
           <url>file://$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/adressbook/tests/ContactPhoneTests.java</url>
           <line>28</line>
           <option name="timeStamp" value="46" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/adressbook/tests/ContactModification.java</url>
+          <line>15</line>
+          <option name="timeStamp" value="47" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

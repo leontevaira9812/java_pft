@@ -2,7 +2,6 @@ package ru.stqa.pft.adressbook.tests;
 
 import org.hamcrest.CoreMatchers;
 import org.hamcrest.MatcherAssert;
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -14,12 +13,7 @@ public class ContactModification extends TestBase {
   public void ensurePreconditions() {
     ContactData contactCreation = new ContactData().withName("ira").withLastname("leon").withAddress("uly").withMobilePhone("111")
             .withEmail("test@example.com").withGroup("grname");
-   /* app.getNavigationHelper().goToGroupPage();
-    if (!app.getGroupHelper().checkIsGroupExist(By.className("group"))) {
-      app.getGroupHelper().createGroup();
-    }
-    app.getNavigationHelper().returnToHomePage(); */
-    if (!app.isElementPresent(By.name("entry"))) {
+    if (!app.contact().isContactExists()) {
       app.contact().create(contactCreation);
     }
   }

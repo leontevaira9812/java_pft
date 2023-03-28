@@ -7,11 +7,13 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.adressbook.model.ContactData;
 import ru.stqa.pft.adressbook.model.Contacts;
-import ru.stqa.pft.adressbook.tests.TestBase;
 
 import java.util.List;
 
+import static ru.stqa.pft.adressbook.tests.TestBase.app;
+
 public class ContactHelper extends BaseHelper {
+
 
   // protected final ApplicationManager app = new ApplicationManager(BrowserType.FIREFOX);
 
@@ -160,7 +162,7 @@ public class ContactHelper extends BaseHelper {
     initNewContact();
     fillDataToContact(contactCreation, true);
     saveContact();
-    TestBase.app.goTo().returnToHomePage();
+    app.goTo().returnToHomePage();
   }
 
   public void modify(ContactData contactModification) {
@@ -168,7 +170,7 @@ public class ContactHelper extends BaseHelper {
     fillDataToContact(contactModification, false);
     submitContactModification();
     // contactCache = null;
-    TestBase.app.goTo().returnToHomePage();
+    app.goTo().returnToHomePage();
   }
 
   public void delete(List<ContactData> before) {
@@ -213,5 +215,12 @@ public class ContactHelper extends BaseHelper {
 
     //driver.findElement(By.xpath(String.format("input[@value='s%']/../../td[8]/a", id))).click();
     // driver.findElement(By.cssSelector(String.format("a[href='edit.php?id=s%']",id))).click();
+  }
+
+  public boolean isContactExists() {
+    if (!app.isElementPresent(By.name("entry"))) {
+      return false;
+    }
+    return true;
   }
 }

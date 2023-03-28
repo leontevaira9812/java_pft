@@ -1,6 +1,5 @@
 package ru.stqa.pft.adressbook.tests;
 
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -15,7 +14,7 @@ public class GroupDeletionTests extends TestBase {
   @BeforeMethod
   public void ensurePreconditions() {
     app.goTo().groupPage();
-    if (!app.group().checkIsGroupExist(By.className("group"))) {
+    if (app.group().all().size() == 0) {
       //app.group().create(new GroupData(0, "grname", "logo", "comm"));
       app.group().create(new GroupData().withName("grname").withLogo("logo").withComment("comm"));
     }

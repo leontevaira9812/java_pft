@@ -1,6 +1,5 @@
 package ru.stqa.pft.adressbook.tests;
 
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -17,8 +16,7 @@ public class ContactCreation extends TestBase {
   @BeforeMethod
   public void ensurePreconditions() {
     app.goTo().groupPage();
-    if (!app.group().checkIsGroupExist(By.className("group"))) {
-      //app.group().create(new GroupData(0, "grname", "logo", "comm"));
+    if (!app.group().checkIsGroupExist()) {
       app.group().create(new GroupData().withName("grname"));
     }
     app.goTo().returnToHomePage();

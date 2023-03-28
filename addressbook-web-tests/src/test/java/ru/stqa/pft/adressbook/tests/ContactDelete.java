@@ -1,6 +1,5 @@
 package ru.stqa.pft.adressbook.tests;
 
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -17,7 +16,7 @@ public class ContactDelete extends TestBase {
     ContactData contactCreation = new ContactData().withName("ira").withLastname("leon").withAddress("uly").withMobilePhone("111")
             .withEmail("test@example.com").withGroup("grname");
     app.goTo().returnToHomePage();
-    if (!app.isElementPresent(By.name("entry"))) {
+    if (!app.contact().isContactExists()) {
       app.contact().create(contactCreation);
     }
   }
