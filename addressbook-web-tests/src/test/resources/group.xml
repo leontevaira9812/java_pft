@@ -1,0 +1,17 @@
+<list>
+  <group>
+    <name>test 0</name>
+    <logo>logo 0</logo>
+    <comment>comment 0</comment>
+  </group>
+  <group>
+    <name>test 1</name>
+    <logo>logo 1</logo>
+    <comment>comment 1</comment>
+  </group>
+  <group>
+    <name>test 2</name>
+    <logo>logo 2</logo>
+    <comment>comment 2</comment>
+  </group>
+</list>

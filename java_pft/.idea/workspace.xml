@@ -86,11 +86,11 @@
       <recent name="ru.stqa.pft.sandbox" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.GroupCreationTests.testGroupCreation">
-    <configuration name="GroupDataGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="TestNG.GroupCreationTests">
+    <configuration name="GroupDataGenerator" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.adressbook.generators.GroupDataGenerator" />
       <module name="addressbook-web-tests.test" />
-      <option name="PROGRAM_PARAMETERS" value="-c 20 -f src/test/resources/group.csv" />
+      <option name="PROGRAM_PARAMETERS" value="-c 3 -f src/test/resources/group.xml -d xml" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../addressbook-web-tests" />
       <extension name="coverage">
         <pattern>
@@ -181,9 +181,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.GroupCreationTests.testGroupCreation" />
         <item itemvalue="TestNG.GroupCreationTests" />
-        <item itemvalue="Application.GroupDataGenerator" />
+        <item itemvalue="TestNG.GroupCreationTests.testGroupCreation" />
         <item itemvalue="TestNG.ContactCreation" />
         <item itemvalue="TestNG.ContactCreation.testContactCreation" />
       </list>
@@ -233,7 +232,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/adressbook/tests/GroupCreationTests.java</url>
-          <line>48</line>
+          <line>57</line>
           <option name="timeStamp" value="34" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
