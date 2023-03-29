@@ -7,6 +7,8 @@ import ru.stqa.pft.adressbook.model.ContactData;
 import ru.stqa.pft.adressbook.model.Contacts;
 import ru.stqa.pft.adressbook.model.GroupData;
 
+import java.io.File;
+
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -25,9 +27,8 @@ public class ContactCreation extends TestBase {
   @Test
   public void testContactCreation() throws Exception {
     Contacts before = app.contact().all();
-    // ContactData contact = new ContactData(Integer.MAX_VALUE, "ira", "leon", "uly",
-    // "111", "222", "333", "test@example.com", "grname");
-    ContactData contact = new ContactData().withName("ira").withLastname("leon").withAddress("uly").withFirstEmail("email1")
+    File photo = new File("src/test/resources/images.jpg");
+    ContactData contact = new ContactData().withName("ira").withLastname("leon").withPhoto(photo).withAddress("uly").withFirstEmail("email1")
             .withSecondEmail("email2").withMobilePhone("111").withHomePhone("222").withWorkPhone("333").withGroup("grname");
     app.contact().create(contact);
     Contacts after = app.contact().all();
@@ -36,4 +37,12 @@ public class ContactCreation extends TestBase {
             withAdded(contact.id(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
   }
 
+  @Test(enabled = false)
+  public void photoTest() {
+    File curPhoto = new File(".");
+    System.out.println(curPhoto.getAbsoluteFile());
+    File photo = new File("src/test/resources/images.jpg");
+    System.out.println(photo.exists());
+    System.out.println(photo.getAbsoluteFile());
+  }
 }
