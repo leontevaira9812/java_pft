@@ -17,6 +17,7 @@ public class GroupData {
   public String logo;
   @Expose
   public String comment;
+  public String ira;
 
 
   public GroupData withName(String name) {
@@ -50,17 +51,16 @@ public class GroupData {
   }
 
 
+  public String name() {
+    return name;
+  }
+
   @Override
   public String toString() {
     return "GroupData{" +
             "id=" + id +
             ", name='" + name + '\'' +
             '}';
-  }
-
-
-  public String name() {
-    return name;
   }
 
   @Override

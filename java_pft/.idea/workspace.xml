@@ -73,6 +73,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
     "settings.editor.selected.configurable": "preferences.sourceCode.Java"
   }
 }]]></component>
@@ -86,7 +87,22 @@
       <recent name="ru.stqa.pft.sandbox" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.GroupCreationTests.testGroupCreation">
+  <component name="RunManager" selected="TestNG.ContactCreation">
+    <configuration name="ContactDataGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.adressbook.generators.ContactDataGenerator" />
+      <module name="addressbook-web-tests.test" />
+      <option name="PROGRAM_PARAMETERS" value="-c 3 -f src/test/resources/contact.json -d json" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../addressbook-web-tests" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.stqa.pft.adressbook.generators.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="GroupDataGenerator" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.adressbook.generators.GroupDataGenerator" />
       <module name="addressbook-web-tests.test" />
@@ -166,16 +182,26 @@
     </configuration>
     <configuration name="GroupCreationTests.testGroupCreation" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="addressbook-web-tests.test" />
+      <shortenClasspath name="NONE" />
+      <useClassPathOnly />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="ru.stqa.pft.adressbook.tests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="SUITE_NAME" value="" />
       <option name="PACKAGE_NAME" value="ru.stqa.pft.adressbook.tests" />
       <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.adressbook.tests.GroupCreationTests" />
       <option name="METHOD_NAME" value="testGroupCreation" />
+      <option name="GROUP_NAME" value="" />
       <option name="TEST_OBJECT" value="METHOD" />
+      <option name="PARAMETERS" value="" />
+      <option name="OUTPUT_DIRECTORY" value="" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <option name="PROPERTIES_FILE" value="" />
       <properties />
       <listeners />
       <method v="2">
@@ -184,6 +210,7 @@
     </configuration>
     <list>
       <item itemvalue="Application.GroupDataGenerator" />
+      <item itemvalue="Application.ContactDataGenerator" />
       <item itemvalue="TestNG.GroupCreationTests" />
       <item itemvalue="TestNG.GroupCreationTests.testGroupCreation" />
       <item itemvalue="TestNG.ContactCreation" />
@@ -191,10 +218,11 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.GroupCreationTests.testGroupCreation" />
-        <item itemvalue="TestNG.GroupCreationTests" />
         <item itemvalue="TestNG.ContactCreation" />
+        <item itemvalue="TestNG.GroupCreationTests" />
         <item itemvalue="TestNG.ContactCreation.testContactCreation" />
+        <item itemvalue="TestNG.GroupCreationTests.testGroupCreation" />
+        <item itemvalue="Application.ContactDataGenerator" />
       </list>
     </recent_temporary>
   </component>
@@ -225,6 +253,24 @@
           </properties>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/adressbook/generators/GroupDataGenerator.java</url>
+          <line>26</line>
+          <properties class="ru.stqa.pft.adressbook.generators.GroupDataGenerator" method="main">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="51" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/adressbook/generators/ContactDataGenerator.java</url>
+          <line>24</line>
+          <properties class="ru.stqa.pft.adressbook.generators.ContactDataGenerator" method="main">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="52" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/adressbook/tests/ContactDelete.java</url>
           <line>27</line>
@@ -237,7 +283,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/adressbook/appmanager/ContactHelper.java</url>
-          <line>109</line>
+          <line>116</line>
           <option name="timeStamp" value="33" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -247,13 +293,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/adressbook/tests/ContactCreation.java</url>
-          <line>33</line>
+          <line>59</line>
           <option name="timeStamp" value="35" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/adressbook/tests/ContactCreation.java</url>
-          <line>32</line>
-          <option name="timeStamp" value="43" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/adressbook/tests/ContactPhoneTests.java</url>
@@ -277,13 +318,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/adressbook/tests/ContactCreation.java</url>
-          <line>41</line>
+          <line>67</line>
           <option name="timeStamp" value="49" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/adressbook/appmanager/ContactHelper.java</url>
-          <line>27</line>
-          <option name="timeStamp" value="50" />
+          <line>171</line>
+          <option name="timeStamp" value="55" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

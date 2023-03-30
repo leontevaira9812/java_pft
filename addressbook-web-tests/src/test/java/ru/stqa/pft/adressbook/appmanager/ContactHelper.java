@@ -34,7 +34,14 @@ public class ContactHelper extends BaseHelper {
     type(By.name("email2"), contactData.secondEmail());
     type(By.name("email3"), contactData.thirdEmail());
     if (creation) {
-      new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(contactData.group());
+      try {
+        new Select(driver.findElement(By.name("new_group")))
+                .selectByVisibleText(contactData.group());
+      } catch (NullPointerException e) {
+        new Select(driver.findElement(By.name("new_group"))).selectByVisibleText("[none]");
+      }
+
+      //  new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(contactData.group());
     }
     // проверка на то существует ли переданная группа в выпадающем списке,
     // закоментировала потому что заменила это проверкой на существование группы на странице групс в начале теста
