@@ -87,22 +87,7 @@
       <recent name="ru.stqa.pft.sandbox" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.ContactCreation">
-    <configuration name="ContactDataGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.adressbook.generators.ContactDataGenerator" />
-      <module name="addressbook-web-tests.test" />
-      <option name="PROGRAM_PARAMETERS" value="-c 3 -f src/test/resources/contact.json -d json" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../addressbook-web-tests" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ru.stqa.pft.adressbook.generators.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="TestNG.C:/java_course/java_pft/addressbook-web-tests/src/test/resources/testng-groups.xml">
     <configuration name="GroupDataGenerator" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.adressbook.generators.GroupDataGenerator" />
       <module name="addressbook-web-tests.test" />
@@ -114,6 +99,16 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="C:/java_course/java_pft/addressbook-web-tests/src/test/resources/testng-groups.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="addressbook-web-tests.test" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/../addressbook-web-tests/src/test/resources/testng-groups.xml" />
+      <option name="TEST_OBJECT" value="SUITE" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -220,7 +215,7 @@
     </configuration>
     <list>
       <item itemvalue="Application.GroupDataGenerator" />
-      <item itemvalue="Application.ContactDataGenerator" />
+      <item itemvalue="TestNG.C:/java_course/java_pft/addressbook-web-tests/src/test/resources/testng-groups.xml" />
       <item itemvalue="TestNG.GroupCreationTests" />
       <item itemvalue="TestNG.GroupCreationTests.testGroupCreation" />
       <item itemvalue="TestNG.ContactCreation" />
@@ -228,11 +223,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.C:/java_course/java_pft/addressbook-web-tests/src/test/resources/testng-groups.xml" />
         <item itemvalue="TestNG.ContactCreation" />
         <item itemvalue="TestNG.GroupCreationTests" />
         <item itemvalue="TestNG.ContactCreation.testContactCreation" />
         <item itemvalue="TestNG.GroupCreationTests.testGroupCreation" />
-        <item itemvalue="Application.ContactDataGenerator" />
       </list>
     </recent_temporary>
   </component>
@@ -298,12 +293,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/adressbook/tests/GroupCreationTests.java</url>
-          <line>76</line>
+          <line>77</line>
           <option name="timeStamp" value="34" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/adressbook/tests/ContactCreation.java</url>
-          <line>59</line>
+          <line>60</line>
           <option name="timeStamp" value="35" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -328,7 +323,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/adressbook/tests/ContactCreation.java</url>
-          <line>67</line>
+          <line>68</line>
           <option name="timeStamp" value="49" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
