@@ -32,7 +32,6 @@ public class GroupData {
   @Column(name = "group_footer")
   @Type(type = "text")
   public String comment;
-  public String ira;
 
 
   public GroupData withName(String name) {

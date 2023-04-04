@@ -27,8 +27,8 @@
         <!-- Drop and re-create the database schema on startup -->
         <property name="hbm2ddl.auto">validate</property>
         <!-- Names the annotated entity class -->
-        <mapping class="ru.stqa.pft.addressbook.model.GroupData"/>
-        <mapping class="ru.stqa.pft.addressbook.model.ContactData"/>
+        <mapping class="ru.stqa.pft.adressbook.model.GroupData"/>
+        <mapping class="ru.stqa.pft.adressbook.model.ContactData"/>
 
     </session-factory>
 

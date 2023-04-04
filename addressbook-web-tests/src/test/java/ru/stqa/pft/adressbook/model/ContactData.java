@@ -1,41 +1,69 @@
 package ru.stqa.pft.adressbook.model;
 
 import com.google.gson.annotations.Expose;
+import org.hibernate.annotations.Type;
 
+import javax.persistence.*;
 import java.io.File;
 import java.util.Objects;
 
+@Entity
+@Table(name = "addressbook")
+
 public class ContactData {
+  @Id
+  @Column(name = "id")
   private int id = Integer.MAX_VALUE;
   @Expose
+  @Column(name = "firstname")
   public String name;
   @Expose
+  @Column(name = "lastname")
   public String lastname;
   @Expose
+  @Column(name = "address")
+  @Type(type = "text")
   public String address;
-
+  @Transient
   public String telephone;
   @Expose
+  @Transient
   public String email;
-
+  @Transient
   public String group;
+  @Column(name = "home")
+  @Type(type = "text")
   public String homePhone;
   @Expose
+  @Column(name = "mobile")
+  @Type(type = "text")
   public String mobilePhone;
+  @Column(name = "work")
+  @Type(type = "text")
   public String workPhone;
+  @Column(name = "email")
+  @Type(type = "text")
   public String firstEmail;
+  @Column(name = "email2")
+  @Type(type = "text")
   public String secondEmail;
+  @Column(name = "email3")
+  @Type(type = "text")
   public String thirdEmail;
+  @Transient
   public String allPhones;
+  @Transient
   public String allEmails;
-  public File photo;
+  @Column(name = "photo")
+  @Type(type = "text")
+  public String photo;
 
   public File photo() {
-    return photo;
+    return new File(photo);
   }
 
   public ContactData withPhoto(File photo) {
-    this.photo = photo;
+    this.photo = photo.getPath();
     return this;
   }
 
@@ -194,6 +222,16 @@ public class ContactData {
   public ContactData withAllPhones(String allPhones) {
     this.allPhones = allPhones;
     return this;
+  }
+
+  @Override
+  public String toString() {
+    return "ContactData{" +
+            "id=" + id +
+            ", name='" + name + '\'' +
+            ", lastname='" + lastname + '\'' +
+            ", address='" + address + '\'' +
+            '}';
   }
 
   public ContactData withAllEmails(String allEmails) {
