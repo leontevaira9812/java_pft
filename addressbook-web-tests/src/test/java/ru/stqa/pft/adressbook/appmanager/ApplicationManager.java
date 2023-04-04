@@ -5,10 +5,15 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.BrowserType;
 
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
 
+  private final Properties properties;
   public WebDriver driver;
   private NavigationHelper navigationHelper;
   private SessionHelper sessionHelper;
@@ -18,9 +23,11 @@ public class ApplicationManager {
   private String browser;
 
 
-  public ApplicationManager(String browser) {
+  public ApplicationManager(String browser) throws IOException {
 
     this.browser = browser;
+    properties = new Properties();
+
   }
 
 
@@ -42,9 +49,9 @@ public class ApplicationManager {
     }
   }
 
-  public void init() {
-    //  System.setProperty("webdriver.firefox.driver", "C:\\Program Files\\geckodriver.exe");
-    //  System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\chromedriver.exe");
+  public void init() throws IOException {
+    String target = System.getProperty("target", "local");
+    properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties", target))));
     if (browser.equals(BrowserType.FIREFOX)) {
       driver = new FirefoxDriver();
     } else if (browser.equals(BrowserType.CHROME)) {
@@ -56,8 +63,9 @@ public class ApplicationManager {
     navigationHelper = new NavigationHelper(driver);
     sessionHelper = new SessionHelper(driver);
     contactHelper = new ContactHelper(driver);
-    driver.get("http://localhost/addressbook/");
-    sessionHelper.login("admin", "secret");
+    //driver.get("http://localhost/addressbook/");
+    driver.get(properties.getProperty("browserUrl"));
+    sessionHelper.login(properties.getProperty("adminLogin"), properties.getProperty("adminPassword"));
   }
 
   public void stop() {
