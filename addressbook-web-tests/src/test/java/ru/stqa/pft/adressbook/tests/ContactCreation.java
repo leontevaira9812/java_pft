@@ -27,8 +27,8 @@ public class ContactCreation extends TestBase {
 
   @BeforeMethod
   public void ensurePreconditions() {
-    app.goTo().groupPage();
-    if (!app.group().checkIsGroupExist()) {
+    if (app.db().groups().size() == 0) {
+      app.goTo().groupPage();
       app.group().create(new GroupData().withName("grname"));
     }
     app.goTo().returnToHomePage();
@@ -53,12 +53,10 @@ public class ContactCreation extends TestBase {
 
   @Test(dataProvider = "validDataContacts")
   public void testContactCreation(ContactData contact) throws Exception {
-    Contacts before = app.contact().all();
+    Contacts before = app.db().contacts();
     File photo = new File("src/test/resources/images.jpg");
-    // ContactData contact = new ContactData().withName("ira").withLastname("leon").withPhoto(photo).withAddress("uly").withFirstEmail("email1")
-    //  .withSecondEmail("email2").withMobilePhone("111").withHomePhone("222").withWorkPhone("333").withGroup("grname");
     app.contact().create(contact);
-    Contacts after = app.contact().all();
+    Contacts after = app.db().contacts();
     Assert.assertEquals(after.size(), before.size() + 1);
     assertThat(after, equalTo(before.
             withAdded(contact.id(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));

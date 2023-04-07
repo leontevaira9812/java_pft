@@ -40,7 +40,7 @@ public class ContactDataGenerator {
     for (int i = 0; i < count; i++) {
       contacts.add(new ContactData().withName(String.format("name %s", i))
               .withLastname(String.format("lastname %s", i)).withAddress(String.format("address %s", i))
-              .withMobilePhone(String.format("mobilePhone %s", i)).withEmail(String.format("email %s", i)));
+              .withMobilePhone(String.format("mobilePhone %s", i)).withFirstEmail(String.format("email %s", i)));
     }
     return contacts;
   }

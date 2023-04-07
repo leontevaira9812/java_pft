@@ -26,7 +26,7 @@ public class ContactData {
   public String address;
   @Transient
   public String telephone;
-  @Expose
+
   @Transient
   public String email;
   @Transient
@@ -41,9 +41,24 @@ public class ContactData {
   @Column(name = "work")
   @Type(type = "text")
   public String workPhone;
+  @Expose
   @Column(name = "email")
   @Type(type = "text")
   public String firstEmail;
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    ContactData that = (ContactData) o;
+    return id == that.id && Objects.equals(name, that.name) && Objects.equals(lastname, that.lastname) && Objects.equals(address, that.address) && Objects.equals(mobilePhone, that.mobilePhone) && Objects.equals(firstEmail, that.firstEmail);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id, name, lastname, address, mobilePhone, firstEmail);
+  }
+
   @Column(name = "email2")
   @Type(type = "text")
   public String secondEmail;
@@ -146,14 +161,6 @@ public class ContactData {
   }
 
 
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    ContactData that = (ContactData) o;
-    return id == that.id && Objects.equals(name, that.name) && Objects.equals(lastname, that.lastname);
-  }
-
   public ContactData withId(int id) {
     this.id = id;
     return this;
@@ -237,11 +244,6 @@ public class ContactData {
   public ContactData withAllEmails(String allEmails) {
     this.allEmails = allEmails;
     return this;
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(id, name);
   }
 
 

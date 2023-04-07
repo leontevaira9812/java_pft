@@ -33,6 +33,18 @@ public class GroupData {
   @Type(type = "text")
   public String comment;
 
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    GroupData groupData = (GroupData) o;
+    return id == groupData.id && Objects.equals(name, groupData.name) && Objects.equals(logo, groupData.logo) && Objects.equals(comment, groupData.comment);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id, name, logo, comment);
+  }
 
   public GroupData withName(String name) {
     this.name = name;
@@ -75,19 +87,6 @@ public class GroupData {
             "id=" + id +
             ", name='" + name + '\'' +
             '}';
-  }
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    GroupData groupData = (GroupData) o;
-    return id == groupData.id && Objects.equals(name, groupData.name);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(id, name);
   }
 
   public String logo() {

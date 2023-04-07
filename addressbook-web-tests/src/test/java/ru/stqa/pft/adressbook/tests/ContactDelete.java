@@ -16,17 +16,17 @@ public class ContactDelete extends TestBase {
     ContactData contactCreation = new ContactData().withName("ira").withLastname("leon").withAddress("uly").withMobilePhone("111")
             .withEmail("test@example.com").withGroup("grname");
     app.goTo().returnToHomePage();
-    if (!app.contact().isContactExists()) {
+    if (app.db().contacts().size() == 0) {
       app.contact().create(contactCreation);
     }
   }
 
   @Test(enabled = true)
   public void testContactDelete() {
-    Contacts before = app.contact().all();
+    Contacts before = app.db().contacts();
     ContactData deletedGroup = before.iterator().next();
     app.contact().delete(deletedGroup);
-    Contacts after = app.contact().all();
+    Contacts after = app.db().contacts();
     Assert.assertEquals(after.size(), before.size() - 1);
     assertThat(after, equalTo(before.withoutAdded(deletedGroup)));
 
