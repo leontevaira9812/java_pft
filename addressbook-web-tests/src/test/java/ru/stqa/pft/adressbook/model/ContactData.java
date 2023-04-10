@@ -51,7 +51,11 @@ public class ContactData {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     ContactData that = (ContactData) o;
-    return id == that.id && Objects.equals(name, that.name) && Objects.equals(lastname, that.lastname) && Objects.equals(address, that.address) && Objects.equals(mobilePhone, that.mobilePhone) && Objects.equals(firstEmail, that.firstEmail);
+    return id == that.id && Objects.equals(name, that.name)
+            && Objects.equals(lastname, that.lastname)
+            && Objects.equals(address, that.address)
+            && Objects.equals(mobilePhone, that.mobilePhone)
+            && Objects.equals(firstEmail, that.firstEmail);
   }
 
   @Override
