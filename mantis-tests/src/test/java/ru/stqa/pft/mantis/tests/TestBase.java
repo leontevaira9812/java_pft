@@ -13,7 +13,7 @@ public class TestBase {
 
   static {
     try {
-      app = new ApplicationManager(System.getProperty("browser", BrowserType.FIREFOX));
+      app = new ApplicationManager(System.getProperty("browser", BrowserType.CHROME));
     } catch (IOException e) {
       throw new RuntimeException(e);
     }

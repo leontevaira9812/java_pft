@@ -1,6 +1,6 @@
 package ru.stqa.pft.mantis.appmanager;
 
-import org.openqa.selenium.*;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.BrowserType;
@@ -35,7 +35,7 @@ public class ApplicationManager {
       driver = new ChromeDriver();
     }
     driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-    driver.get(properties.getProperty("browserUrl"));
+    driver.get(properties.getProperty("web.baseUrl"));
 
   }
 
@@ -43,5 +43,12 @@ public class ApplicationManager {
     driver.quit();
   }
 
+  public HttpSession newSession() {
+    return new HttpSession(this);
+  }
 
+  public String getProperty(String key) {
+    return properties.getProperty(key);
+
+  }
 }
