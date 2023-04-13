@@ -16,6 +16,7 @@ public class ApplicationManager {
   private final Properties properties;
   private RegistrationHelper registrationHelper;
   private FtpHelper ftp;
+  private MailHelper mailHelper;
   private String browser;
 
   private WebDriver driver;
@@ -62,6 +63,13 @@ public class ApplicationManager {
       ftp = new FtpHelper(this);
     }
     return ftp;
+  }
+
+  public MailHelper mail() {
+    if (mailHelper == null) {
+      mailHelper = new MailHelper(this);
+    }
+    return mailHelper;
   }
 
   public WebDriver getDriver() {
