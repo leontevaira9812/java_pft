@@ -7,12 +7,19 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.adressbook.model.ContactData;
 import ru.stqa.pft.adressbook.model.Contacts;
+import ru.stqa.pft.adressbook.model.GroupData;
+import ru.stqa.pft.adressbook.model.Groups;
 
 public class ContactModification extends TestBase {
   @BeforeMethod
   public void ensurePreconditions() {
+    if (app.db().groups().size() == 0) {
+      app.goTo().groupPage();
+      app.group().create(new GroupData().withName("grname"));
+    }
+    Groups groups = app.db().groups();
     ContactData contactCreation = new ContactData().withName("ira").withLastname("leon").withAddress("uly").withMobilePhone("111")
-            .withEmail("test@example.com").withGroup("grname");
+            .withEmail("test@example.com").inGroup(groups.iterator().next());
     if (app.db().contacts().size() == 0) {
       app.contact().create(contactCreation);
     }

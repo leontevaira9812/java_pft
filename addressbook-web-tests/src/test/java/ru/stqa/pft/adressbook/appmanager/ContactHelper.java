@@ -34,6 +34,13 @@ public class ContactHelper extends BaseHelper {
     type(By.name("email2"), contactData.secondEmail());
     type(By.name("email3"), contactData.thirdEmail());
     if (creation) {
+      if (contactData.getGroups().size() > 0) {
+        Assert.assertTrue(contactData.getGroups().size() == 1);
+        new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroups().iterator().next().name());
+      }
+    }
+
+   /* if (creation) {
       try {
         new Select(driver.findElement(By.name("new_group")))
                 .selectByVisibleText(contactData.group());
@@ -42,7 +49,7 @@ public class ContactHelper extends BaseHelper {
       }
 
       //  new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(contactData.group());
-    }
+    }*/
     // проверка на то существует ли переданная группа в выпадающем списке,
     // закоментировала потому что заменила это проверкой на существование группы на странице групс в начале теста
     //  if (!isGroupExistInContactCreationForm(contactData.group())) {
@@ -187,14 +194,14 @@ public class ContactHelper extends BaseHelper {
     closeAlert();
   }
 
-  public void delete(ContactData group) {
-    selectContactById(group.getId());
+  public void delete(ContactData contact) {
+    selectContactById(contact.getId());
     deleteContact();
     //contactCache = null;
     closeAlert();
   }
 
-  private void selectContactById(int id) {
+  public void selectContactById(int id) {
     driver.findElement(By.cssSelector("input[value='" + id + "']")).click();
   }
 
@@ -230,5 +237,15 @@ public class ContactHelper extends BaseHelper {
       return false;
     }
     return true;
+  }
+
+  public void selectGroupInDropDown(int idGroup) {
+    click(By.xpath(String.format("xpath=//input[@id='%s']", idGroup)));
+
+
+  }
+
+  public void clickAddToGroup() {
+    click(By.name("add"));
   }
 }
