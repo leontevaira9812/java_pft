@@ -15,9 +15,13 @@ public class ApplicationManager {
 
   private final Properties properties;
   private RegistrationHelper registrationHelper;
+  private UsersHelper users;
+
+  private LoginHelper loginHelper;
   private FtpHelper ftp;
   private MailHelper mailHelper;
   private String browser;
+  private DbHelper db;
 
   private WebDriver driver;
 
@@ -51,6 +55,20 @@ public class ApplicationManager {
   }
 
 
+  public LoginHelper login() {
+    if (loginHelper == null) {
+      loginHelper = new LoginHelper(this);
+    }
+    return loginHelper;
+  }
+
+  public UsersHelper users() {
+    if (users == null) {
+      users = new UsersHelper(this);
+    }
+    return users;
+  }
+
   public RegistrationHelper registration() {
     if (registrationHelper == null) {
       registrationHelper = new RegistrationHelper(this);
@@ -63,6 +81,13 @@ public class ApplicationManager {
       ftp = new FtpHelper(this);
     }
     return ftp;
+  }
+
+  public DbHelper db() {
+    if (db == null) {
+      db = new DbHelper(this);
+    }
+    return db;
   }
 
   public MailHelper mail() {
