@@ -104,7 +104,7 @@
       <recent name="ru.stqa.pft.mantis.tests" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.GeoIpServiceTests.testMyIp">
+  <component name="RunManager" selected="TestNG.SoapTests.testGetProjects">
     <configuration name="GroupDataGenerator" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.adressbook.generators.GroupDataGenerator" />
       <module name="addressbook-web-tests.test" />
@@ -229,7 +229,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegistrationTests" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="SoapTests.testGetProjects" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="mantis-tests.test" />
       <extension name="coverage">
         <pattern>
@@ -238,8 +238,9 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="ru.stqa.pft.mantis.tests" />
-      <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.mantis.tests.RegistrationTests" />
-      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.mantis.tests.SoapTests" />
+      <option name="METHOD_NAME" value="testGetProjects" />
+      <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
       <method v="2">
@@ -252,16 +253,16 @@
       <item itemvalue="Gradle.GeoIpServiceTests.testMyIp" />
       <item itemvalue="TestNG.GroupModification" />
       <item itemvalue="TestNG.GeoIpServiceTests.testMyIp" />
+      <item itemvalue="TestNG.SoapTests.testGetProjects" />
       <item itemvalue="TestNG.ChangePasswordTests" />
-      <item itemvalue="TestNG.RegistrationTests" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.SoapTests.testGetProjects" />
         <item itemvalue="TestNG.GeoIpServiceTests.testMyIp" />
         <item itemvalue="Gradle.GeoIpServiceTests.testMyIp" />
         <item itemvalue="Gradle.GeoIpServiceTests" />
         <item itemvalue="TestNG.ChangePasswordTests" />
-        <item itemvalue="TestNG.RegistrationTests" />
       </list>
     </recent_temporary>
   </component>
