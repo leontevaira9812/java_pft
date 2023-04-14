@@ -23,6 +23,14 @@ public class UsersHelper extends BaseHelper {
   }
 
   public void clickOnResetPassword() {
-    click(By.cssSelector("input[value='Сбросить пароль']\""));
+    click(By.cssSelector("input[value='Сбросить пароль']"));
+  }
+
+  public void changePassword(String confirmationLink, String fio, String password) {
+    driver.get(confirmationLink);
+    type(By.name("realname"), fio);
+    type(By.name("password"), password);
+    type(By.name("password_confirm"), password);
+    click(By.cssSelector("input[value='Изменить учетную запись']"));
   }
 }

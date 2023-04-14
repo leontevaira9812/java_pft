@@ -8,8 +8,11 @@ import ru.stqa.pft.mantis.model.MailMessage;
 import ru.stqa.pft.mantis.model.Users;
 import ru.stqa.pft.mantis.model.UsersData;
 
+import javax.mail.MessagingException;
 import java.io.IOException;
 import java.util.List;
+
+import static org.testng.Assert.assertTrue;
 
 public class ChangePasswordTests extends TestBase {
   @BeforeMethod
@@ -18,7 +21,9 @@ public class ChangePasswordTests extends TestBase {
   }
 
   @Test
-  public void TestChangePassword() throws IOException {
+  public void TestChangePassword() throws IOException, MessagingException {
+    String fio = "testfio";
+    String password = "password";
     app.login().enterLoginCredentinals(app.getProperty("username"), app.getProperty("password"));
     app.users().manage();
     app.users().manageUsers();
@@ -26,6 +31,12 @@ public class ChangePasswordTests extends TestBase {
     UsersData selectedUser = allUsers.iterator().next();
     app.users().clickOnSelectedUser(selectedUser);
     app.users().clickOnResetPassword();
+    List<MailMessage> mailMessages = app.mail().waitForMail(1, 20000);
+    String email = selectedUser.getEmail();
+    String user = selectedUser.getUsername();
+    String confirmationLink = findConfirmationLink(mailMessages, email);
+    app.users().changePassword(confirmationLink, fio, password);
+    assertTrue(app.newSession().login(user, password));
 
   }
 

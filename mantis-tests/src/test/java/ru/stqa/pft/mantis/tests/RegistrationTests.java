@@ -21,9 +21,9 @@ public class RegistrationTests extends TestBase {
 
   @Test
   public void testRegistration() throws IOException, MessagingException {
-    String user = "user1234";
+    String user = "user111225";
     String password = "password";
-    String email = "user1234@localhost.domain";
+    String email = "user111225@localhost";
     app.registration().start(user, email);
     List<MailMessage> mailMessages = app.mail().waitForMail(2, 20000);
     String confirmationLink = findConfirmationLink(mailMessages, email);
