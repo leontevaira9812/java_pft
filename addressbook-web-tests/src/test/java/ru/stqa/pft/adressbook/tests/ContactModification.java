@@ -19,7 +19,7 @@ public class ContactModification extends TestBase {
     }
     Groups groups = app.db().groups();
     ContactData contactCreation = new ContactData().withName("ira").withLastname("leon").withAddress("uly").withMobilePhone("111")
-            .withEmail("test@example.com").inGroup(groups.iterator().next());
+            .withFirstEmail("test@example.com").inGroup(groups.iterator().next());
     if (app.db().contacts().size() == 0) {
       app.contact().create(contactCreation);
     }
@@ -30,7 +30,7 @@ public class ContactModification extends TestBase {
     Contacts before = app.db().contacts();
     ContactData modifiedContact = before.iterator().next();
     ContactData contactModification = new ContactData().withId(modifiedContact.getId()).withName("Modificated").withLastname("test")
-            .withAddress("uly").withMobilePhone("111").withHomePhone("222").withEmail("test@example.com");
+            .withAddress("uly").withMobilePhone("111").withHomePhone("222").withFirstEmail("test@example.com");
     app.contact().modify(contactModification);
     Contacts after = app.db().contacts();
     Assert.assertEquals(after.size(), before.size());

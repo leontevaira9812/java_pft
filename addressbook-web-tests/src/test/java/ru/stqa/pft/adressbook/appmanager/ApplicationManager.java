@@ -69,7 +69,7 @@ public class ApplicationManager {
       capabilities.setPlatform(Platform.fromString(System.getProperty("platform", "win7")));
       driver = new RemoteWebDriver(new URL(properties.getProperty("selenium.server")), capabilities);
     }
-    driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+    driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
     js = (JavascriptExecutor) driver;
     groupHelper = new GroupHelper(driver);
     navigationHelper = new NavigationHelper(driver);

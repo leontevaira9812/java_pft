@@ -105,9 +105,6 @@ public class ContactHelper extends BaseHelper {
     click(By.xpath("//input[@value='Delete']"));
   }
 
-  public void closeAlert() {
-    driver.switchTo().alert().accept();
-  }
 
   public void clickEditIcon(int index) {
    /* if (!isElementPresent(By.name("entry"))) {
@@ -199,6 +196,11 @@ public class ContactHelper extends BaseHelper {
     deleteContact();
     //contactCache = null;
     closeAlert();
+    driver.findElement(By.cssSelector("div.msgbox"));
+  }
+
+  public void closeAlert() {
+    driver.switchTo().alert().accept();
   }
 
   public void selectContactById(int id) {
