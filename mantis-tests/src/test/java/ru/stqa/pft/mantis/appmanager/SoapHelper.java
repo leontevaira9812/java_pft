@@ -1,7 +1,6 @@
 package ru.stqa.pft.mantis.appmanager;
 
 import biz.futureware.mantis.rpc.soap.client.*;
-import org.testng.SkipException;
 import ru.stqa.pft.mantis.model.Issue;
 import ru.stqa.pft.mantis.model.Project;
 
@@ -52,18 +51,9 @@ public class SoapHelper {
                     .withName(createdIssueData.getProject().getName()));
   }
 
-  private boolean isIssueOpen(int issueId) throws MalformedURLException, ServiceException, RemoteException {
+  public String getIssueStatus(int issueId) throws MalformedURLException, ServiceException, RemoteException {
     MantisConnectPortType mc = getMantisConnect();
-    IssueData issue = mc.mc_issue_get(app.getProperty("bt.login"), app.getProperty("bt.password"), BigInteger.valueOf(issueId));
-    if (!issue.getStatus().getName().equals("closed")) {
-      return true;
-    }
-    return false;
-  }
-
-  public void skipIfNotFixed(int issueId) throws MalformedURLException, ServiceException, RemoteException {
-    if (isIssueOpen(issueId)) {
-      throw new SkipException("Ignored because of issue " + issueId);
-    }
+    String issue = mc.mc_issue_get(app.getProperty("bt.login"), app.getProperty("bt.password"), BigInteger.valueOf(issueId)).getStatus().getName();
+    return issue;
   }
 }
