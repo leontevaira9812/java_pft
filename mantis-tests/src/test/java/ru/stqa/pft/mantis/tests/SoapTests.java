@@ -15,7 +15,7 @@ public class SoapTests extends TestBase {
 
   @Test
   public void testGetProjects() throws MalformedURLException, ServiceException, RemoteException {
-    int issueId = 2;
+    int issueId = 3;
     try {
       skipIfNotFixed(issueId);
     } catch (SkipException e) {

@@ -20,6 +20,9 @@
     <projectState path="$PROJECT_DIR$/../mantis-tests">
       <ProjectState />
     </projectState>
+    <projectState path="$PROJECT_DIR$/../rest-sample">
+      <ProjectState />
+    </projectState>
     <projectState path="$PROJECT_DIR$/../sandbox">
       <ProjectState />
     </projectState>
@@ -72,22 +75,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;18&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/java_course/java_pft/soap-sample/build.gradle&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "extract.method.default.visibility": "private",
+    "jdk.selected.JAVA_MODULE": "18",
+    "last_opened_file_path": "C:/java_course/java_pft/rest-sample/build.gradle",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="ru.stqa.pft.rest" />
       <recent name="ru.stqa.pft.mantis.appmanager" />
       <recent name="ru.stqa.pft.adressbook.model" />
       <recent name="ru.stqa.pft.adressbook.appmanager" />
@@ -104,7 +108,7 @@
       <recent name="ru.stqa.pft.mantis.tests" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.SoapTests.testGetProjects">
+  <component name="RunManager" selected="TestNG.RestTests.testCreateIssue">
     <configuration name="GroupDataGenerator" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.adressbook.generators.GroupDataGenerator" />
       <module name="addressbook-web-tests.test" />
@@ -120,10 +124,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GeoIpServiceTests.testMyIp" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="RestTests.testCreateIssue" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/../soap-sample" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/../rest-sample" />
         <option name="externalSystemIdString" value="GRADLE" />
         <option name="scriptParameters" value="" />
         <option name="taskDescriptions">
@@ -133,7 +137,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;ru.stqa.pft.soap.GeoIpServiceTests.testMyIp&quot;" />
+            <option value="&quot;ru.stqa.pft.rest.RestTests.testCreateIssue&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -142,24 +146,6 @@
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
-    </configuration>
-    <configuration name="GeoIpServiceTests.testMyIp" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="soap-sample.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ru.stqa.pft.soap.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="ru.stqa.pft.soap" />
-      <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.soap.GeoIpServiceTests" />
-      <option name="METHOD_NAME" value="testMyIp" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
     </configuration>
     <configuration name="GroupModification" type="TestNG" nameIsGenerated="true">
       <module name="addressbook-web-tests.test" />
@@ -183,6 +169,24 @@
         <value defaultName="moduleWithDependencies" />
       </option>
       <option name="PROPERTIES_FILE" value="" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RestTests.testCreateIssue" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="rest-sample.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.stqa.pft.rest.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ru.stqa.pft.rest" />
+      <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.rest.RestTests" />
+      <option name="METHOD_NAME" value="testCreateIssue" />
+      <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
       <method v="2">
@@ -244,20 +248,20 @@
     </configuration>
     <list>
       <item itemvalue="Application.GroupDataGenerator" />
-      <item itemvalue="Gradle.GeoIpServiceTests.testMyIp" />
+      <item itemvalue="Gradle.RestTests.testCreateIssue" />
       <item itemvalue="TestNG.GroupModification" />
+      <item itemvalue="TestNG.RestTests.testCreateIssue" />
       <item itemvalue="TestNG.SoapTests" />
       <item itemvalue="TestNG.SoapTests.testCreateIssue" />
-      <item itemvalue="TestNG.GeoIpServiceTests.testMyIp" />
       <item itemvalue="TestNG.SoapTests.testGetProjects" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.RestTests.testCreateIssue" />
+        <item itemvalue="Gradle.RestTests.testCreateIssue" />
         <item itemvalue="TestNG.SoapTests.testGetProjects" />
         <item itemvalue="TestNG.SoapTests.testCreateIssue" />
         <item itemvalue="TestNG.SoapTests" />
-        <item itemvalue="TestNG.GeoIpServiceTests.testMyIp" />
-        <item itemvalue="Gradle.GeoIpServiceTests.testMyIp" />
       </list>
     </recent_temporary>
   </component>
@@ -461,6 +465,16 @@
           <url>file://$PROJECT_DIR$/../mantis-tests/src/test/java/ru/stqa/pft/mantis/tests/TestBase.java</url>
           <line>48</line>
           <option name="timeStamp" value="111" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/../rest-sample/src/test/java/ru/stqa/pft/rest/RestTests.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="114" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/../rest-sample/src/test/java/ru/stqa/pft/rest/RestTests.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="115" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
