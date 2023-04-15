@@ -20,7 +20,7 @@ public class Tests {
   public void TestPoint1() {
     Point p1 = new Point(0, 0);
     Point p2 = new Point(2, 4);
-    Assert.assertEquals(distance(p1, p2), 3.47213595499958);
+    Assert.assertEquals(distance(p1, p2), 4.47213595499958);
   }
 
   // вторая точка в начале координат
