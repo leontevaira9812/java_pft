@@ -111,7 +111,7 @@
       <recent name="ru.stqa.pft.mantis.tests" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.RestTests.testCreateIssue">
+  <component name="RunManager" selected="TestNG.GroupModification (1)">
     <configuration name="GroupDataGenerator" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.adressbook.generators.GroupDataGenerator" />
       <module name="addressbook-web-tests.test" />
@@ -149,6 +149,23 @@
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
+    </configuration>
+    <configuration name="GroupModification (1)" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="addressbook-web-tests.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.stqa.pft.adressbook.tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ru.stqa.pft.adressbook.tests" />
+      <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.adressbook.tests.GroupModification" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="GroupModification" type="TestNG" nameIsGenerated="true">
       <module name="addressbook-web-tests.test" />
@@ -196,23 +213,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SoapTests" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="mantis-tests.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ru.stqa.pft.mantis.tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="ru.stqa.pft.mantis.tests" />
-      <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.mantis.tests.SoapTests" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="SoapTests.testCreateIssue" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="mantis-tests.test" />
       <extension name="coverage">
@@ -253,18 +253,18 @@
       <item itemvalue="Application.GroupDataGenerator" />
       <item itemvalue="Gradle.RestTests.testCreateIssue" />
       <item itemvalue="TestNG.GroupModification" />
+      <item itemvalue="TestNG.GroupModification (1)" />
       <item itemvalue="TestNG.RestTests.testCreateIssue" />
-      <item itemvalue="TestNG.SoapTests" />
       <item itemvalue="TestNG.SoapTests.testCreateIssue" />
       <item itemvalue="TestNG.SoapTests.testGetProjects" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.GroupModification (1)" />
         <item itemvalue="TestNG.RestTests.testCreateIssue" />
         <item itemvalue="TestNG.SoapTests.testGetProjects" />
         <item itemvalue="Gradle.RestTests.testCreateIssue" />
         <item itemvalue="TestNG.SoapTests.testCreateIssue" />
-        <item itemvalue="TestNG.SoapTests" />
       </list>
     </recent_temporary>
   </component>
