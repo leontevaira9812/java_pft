@@ -1,4 +1,4 @@
-package ru.stqa.pft.rest;
+package ru.stqa.pft.rest.appmanager;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
@@ -7,28 +7,21 @@ import com.google.gson.reflect.TypeToken;
 import org.apache.http.client.fluent.Executor;
 import org.apache.http.client.fluent.Request;
 import org.apache.http.message.BasicNameValuePair;
-import org.testng.annotations.Test;
+import ru.stqa.pft.rest.model.Issue;
 
 import java.io.IOException;
 import java.util.Set;
 
-import static org.testng.Assert.assertEquals;
+public class RestHelper {
 
-public class RestTests {
+  private ApplicationManager app;
 
-  @Test
-  public void testCreateIssue() throws IOException {
-    Set<Issue> oldIssues = getIssues();
-    Issue newIssue = new Issue().withSubject("new_issueII").withDescription("new_is_decrI");
-    int issueId = createIssue(newIssue);
-    Set<Issue> newIssues = getIssues();
-    oldIssues.add(newIssue.withId(issueId));
-    assertEquals(newIssues, oldIssues);
-
+  public RestHelper(ApplicationManager applicationManager) {
+    this.app = applicationManager;
   }
 
-  private Set<Issue> getIssues() throws IOException {
-    String json = getExecutor().execute(Request.Get("https://bugify.stqa.ru/api/issues.json?pageSize=500")).returnContent().asString();
+  public Set<Issue> getIssues() throws IOException {
+    String json = getExecutor().execute(Request.Get(app.getProperty("bg.urlIssues") + "?pageSize=500")).returnContent().asString();
     JsonElement parsed = new JsonParser().parse(json);
     JsonElement issues = parsed.getAsJsonObject().get("issues");
     return new Gson()
@@ -36,9 +29,20 @@ public class RestTests {
             }.getType());
   }
 
-  private int createIssue(Issue newIssue) throws IOException {
+
+  public String getIssuesStatus(int issueId) throws IOException {
+    String json = getExecutor().execute(Request.Get(String.format("https://bugify.stqa.ru/api/issues/%s.json", issueId)))
+            .returnContent().asString();
+    JsonElement parsed = new JsonParser().parse(json);
+    JsonElement issues = parsed.getAsJsonObject().get("issues").getAsJsonArray().get(0);
+
+    String status = issues.getAsJsonObject().get("state_name").getAsString();
+    return status;
+  }
+
+  public int createIssue(Issue newIssue) throws IOException {
     String json = getExecutor().execute(Request
-                    .Post("https://bugify.stqa.ru/api/issues.json")
+                    .Post(app.getProperty("bg.urlIssues"))
                     .bodyForm(new BasicNameValuePair("subject", newIssue.getSubject()),
                             new BasicNameValuePair("description", newIssue.getDescription())))
             .returnContent().asString();
@@ -51,6 +55,5 @@ public class RestTests {
   private Executor getExecutor() {
     return Executor.newInstance().auth("b31e382ca8445202e66b03aaf31508a3", "");
   }
-
 
 }
