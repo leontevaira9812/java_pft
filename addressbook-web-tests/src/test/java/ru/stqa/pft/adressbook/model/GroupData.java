@@ -31,7 +31,7 @@ public class GroupData {
   @Column(name = "group_footer")
   @Type(type = "text")
   public String comment;
-  @ManyToMany(mappedBy = "groups")
+  @ManyToMany(mappedBy = "groups", fetch = FetchType.EAGER)
   private Set<ContactData> contacts = new HashSet<ContactData>();
 
   public Contacts getContacts() {
@@ -100,6 +100,11 @@ public class GroupData {
 
   public String comment() {
     return comment;
+  }
+
+  public GroupData withoutAddedContact(ContactData contact) {
+    contacts.remove(contact);
+    return this;
   }
 }
 

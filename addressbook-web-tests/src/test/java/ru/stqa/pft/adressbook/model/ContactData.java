@@ -46,7 +46,7 @@ public class ContactData {
   @Column(name = "email")
   @Type(type = "text")
   public String firstEmail;
-  @ManyToMany
+  @ManyToMany(fetch = FetchType.EAGER)
   @JoinTable(name = "address_in_groups",
           joinColumns = @JoinColumn(name = "id"), inverseJoinColumns = @JoinColumn(name = "group_id"))
   private Set<GroupData> groups = new HashSet<GroupData>();
@@ -264,8 +264,10 @@ public class ContactData {
     return thirdEmail;
   }
 
-  public ContactData inGroup(GroupData group) {
+  public ContactData withAddedGroup(GroupData group) {
     groups.add(group);
     return this;
   }
+
+
 }

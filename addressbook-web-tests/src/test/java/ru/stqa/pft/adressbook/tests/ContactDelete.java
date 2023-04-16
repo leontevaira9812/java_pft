@@ -21,7 +21,7 @@ public class ContactDelete extends TestBase {
     }
     Groups groups = app.db().groups();
     ContactData contactCreation = new ContactData().withName("ira").withLastname("leon").withAddress("uly").withMobilePhone("111")
-            .withEmail("test@example.com").inGroup(groups.iterator().next());
+            .withEmail("test@example.com").withAddedGroup(groups.iterator().next());
     app.goTo().returnToHomePage();
     if (app.db().contacts().size() == 0) {
       app.contact().create(contactCreation);

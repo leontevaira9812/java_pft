@@ -22,7 +22,7 @@ public class ContactPhoneTests extends TestBase {
     }
     Groups groups = app.db().groups();
     ContactData contactCreation = new ContactData().withName("ira").withLastname("leon").withAddress("uly").withFirstEmail("email1")
-            .withSecondEmail("email2").withMobilePhone("111").withHomePhone("222").withWorkPhone("333").inGroup(groups.iterator().next());
+            .withSecondEmail("email2").withMobilePhone("111").withHomePhone("222").withWorkPhone("333").withAddedGroup(groups.iterator().next());
     if (!app.isElementPresent(By.name("entry"))) {
       app.contact().create(contactCreation);
     }

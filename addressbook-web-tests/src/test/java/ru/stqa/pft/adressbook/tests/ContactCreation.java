@@ -57,7 +57,7 @@ public class ContactCreation extends TestBase {
     Contacts before = app.db().contacts();
     Groups groups = app.db().groups();
     File photo = new File("src/test/resources/images.jpg");
-    app.contact().create(contact.inGroup(groups.iterator().next()));
+    app.contact().create(contact.withAddedGroup(groups.iterator().next()));
     Contacts after = app.db().contacts();
     Assert.assertEquals(after.size(), before.size() + 1);
     assertThat(after, equalTo(before.

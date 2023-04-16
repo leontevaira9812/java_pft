@@ -19,7 +19,7 @@ public class ContactModification extends TestBase {
     }
     Groups groups = app.db().groups();
     ContactData contactCreation = new ContactData().withName("ira").withLastname("leon").withAddress("uly").withMobilePhone("111")
-            .withFirstEmail("test@example.com").inGroup(groups.iterator().next());
+            .withFirstEmail("test@example.com").withAddedGroup(groups.iterator().next());
     if (app.db().contacts().size() == 0) {
       app.contact().create(contactCreation);
     }

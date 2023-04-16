@@ -7,6 +7,8 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.adressbook.model.ContactData;
 import ru.stqa.pft.adressbook.model.Contacts;
+import ru.stqa.pft.adressbook.model.GroupData;
+import ru.stqa.pft.adressbook.model.Groups;
 
 import java.util.List;
 
@@ -250,4 +252,46 @@ public class ContactHelper extends BaseHelper {
   public void clickAddToGroup() {
     click(By.name("add"));
   }
+
+  public void selectGroupFromList(String nameGroup) {
+    new Select(driver.findElement(By.name("to_group"))).selectByVisibleText((String.format("%s", nameGroup)));
+
+  }
+
+  public ContactData findAddingContact(Contacts contactsAfter, int addingContactId) {
+    for (ContactData element : contactsAfter) {
+      if (element.getId() == addingContactId) {
+        return element;
+      }
+    }
+    throw new NullPointerException();
+  }
+
+  public GroupData seachGroupWithContacts(Groups groups) {
+    for (GroupData group : groups) {
+      if (group.getContacts().size() > 0) {
+        GroupData selectedGroup = group;
+        return selectedGroup;
+      }
+    }
+    return null;
+  }
+
+  public void selectGroupFromUpperList(String groupName) {
+    new Select(driver.findElement(By.name("group"))).selectByVisibleText((String.format("%s", groupName)));
+  }
+
+  public void removeContactFromGroup() {
+    click(By.name("remove"));
+  }
+
+  public GroupData find(Groups groupsAfter, int id) {
+    for (GroupData element : groupsAfter) {
+      if (element.getId() == id) {
+        return element;
+      }
+    }
+    throw new NullPointerException();
+  }
+
 }
