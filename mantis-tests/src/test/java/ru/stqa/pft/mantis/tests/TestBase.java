@@ -38,7 +38,7 @@ public class TestBase {
   }
 
   public boolean isIssueOpen(int issueId) throws MalformedURLException, ServiceException, RemoteException, MalformedURLException, ServiceException, RemoteException {
-    if (!app.soap().getIssueStatus(issueId).equals("resolved") || app.soap().getIssueStatus(issueId).equals("closed")) {
+    if (!app.soap().getIssueStatus(issueId).equals("resolved") && !app.soap().getIssueStatus(issueId).equals("closed")) {
       return true;
     }
     return false;
