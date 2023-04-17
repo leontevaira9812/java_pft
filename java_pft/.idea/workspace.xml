@@ -5,17 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="43811fdd-8724-46b7-b52b-0ee311b4457a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/adressbook/tests/ContactToGroup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/adressbook/appmanager/ContactHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/adressbook/appmanager/ContactHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/adressbook/model/ContactData.java" beforeDir="false" afterPath="$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/adressbook/model/ContactData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/adressbook/model/Contacts.java" beforeDir="false" afterPath="$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/adressbook/model/Contacts.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/adressbook/model/GroupData.java" beforeDir="false" afterPath="$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/adressbook/model/GroupData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/adressbook/tests/AddContactToGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/adressbook/tests/AddContactToGroup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/adressbook/tests/ContactCreation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/adressbook/tests/ContactCreation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/adressbook/tests/ContactDelete.java" beforeDir="false" afterPath="$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/adressbook/tests/ContactDelete.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/adressbook/tests/ContactModification.java" beforeDir="false" afterPath="$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/adressbook/tests/ContactModification.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/adressbook/tests/ContactPhoneTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/adressbook/tests/ContactPhoneTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/adressbook/tests/GroupModification.java" beforeDir="false" afterPath="$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/adressbook/tests/GroupModification.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/adressbook/tests/AddContactToGroup.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/adressbook/tests/ContactToGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/adressbook/tests/ContactToGroup.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -127,7 +119,7 @@
       <recent name="ru.stqa.pft.mantis.tests" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.ContactToGroup">
+  <component name="RunManager" selected="TestNG.ContactCreation">
     <configuration name="GroupDataGenerator" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.adressbook.generators.GroupDataGenerator" />
       <module name="addressbook-web-tests.test" />
@@ -178,7 +170,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ContactDelete" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="ContactCreation.testContactCreation" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="addressbook-web-tests.test" />
       <extension name="coverage">
         <pattern>
@@ -187,8 +179,9 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="ru.stqa.pft.adressbook.tests" />
-      <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.adressbook.tests.ContactDelete" />
-      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="MAIN_CLASS_NAME" value="ru.stqa.pft.adressbook.tests.ContactCreation" />
+      <option name="METHOD_NAME" value="testContactCreation" />
+      <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
       <method v="2">
@@ -403,19 +396,19 @@
       <item itemvalue="Application.GroupDataGenerator" />
       <item itemvalue="TestNG.GroupModification" />
       <item itemvalue="TestNG.GroupModification.testGroupModification" />
+      <item itemvalue="TestNG.ContactCreation.testContactCreation" />
       <item itemvalue="TestNG.AddContactToGroup.TectContactAddingToGroup" />
       <item itemvalue="TestNG.ContactToGroup" />
       <item itemvalue="TestNG.ContactToGroup.TectContactAddingToGroup" />
       <item itemvalue="TestNG.ContactCreation" />
-      <item itemvalue="TestNG.ContactDelete" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.ContactToGroup" />
         <item itemvalue="TestNG.ContactCreation" />
+        <item itemvalue="TestNG.ContactCreation.testContactCreation" />
+        <item itemvalue="TestNG.ContactToGroup" />
         <item itemvalue="TestNG.ContactToGroup.TectContactAddingToGroup" />
         <item itemvalue="TestNG.AddContactToGroup.TectContactAddingToGroup" />
-        <item itemvalue="TestNG.ContactDelete" />
       </list>
     </recent_temporary>
   </component>
@@ -465,15 +458,6 @@
           <option name="timeStamp" value="52" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/adressbook/tests/AddContactToGroup.java</url>
-          <line>21</line>
-          <properties class="ru.stqa.pft.adressbook.tests.AddContactToGroup" method="setUpTest">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="70" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/../mantis-tests/src/test/java/ru/stqa/pft/mantis/appmanager/RegistrationHelper.java</url>
           <line>19</line>
           <properties class="ru.stqa.pft.mantis.appmanager.RegistrationHelper" method="finish">
@@ -499,15 +483,6 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="104" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/adressbook/tests/AddContactToGroup.java</url>
-          <line>52</line>
-          <properties class="ru.stqa.pft.adressbook.tests.AddContactToGroup" method="TectContactAddingToGroup">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="127" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/adressbook/tests/ContactDelete.java</url>
@@ -645,29 +620,14 @@
           <option name="timeStamp" value="124" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/adressbook/tests/AddContactToGroup.java</url>
-          <line>58</line>
-          <option name="timeStamp" value="125" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/adressbook/tests/ContactToGroup.java</url>
-          <line>39</line>
-          <option name="timeStamp" value="135" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/adressbook/tests/ContactToGroup.java</url>
-          <line>43</line>
-          <option name="timeStamp" value="137" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/adressbook/tests/ContactToGroup.java</url>
-          <line>58</line>
+          <line>55</line>
           <option name="timeStamp" value="139" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/../addressbook-web-tests/src/test/java/ru/stqa/pft/adressbook/tests/ContactToGroup.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="141" />
+          <line>47</line>
+          <option name="timeStamp" value="145" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

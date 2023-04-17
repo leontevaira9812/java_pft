@@ -45,8 +45,7 @@ public class ContactToGroup extends TestBase {
     Contacts contactsAfter = app.db().contacts();
     ContactData contactWithGroup = contactWithoutGroup;
     contactWithGroup = app.contact().findAddingContact(contactsAfter, contactWithoutGroup.getId());
-    assertThat(contactWithGroup, equalTo(contactWithoutGroup.
-            withAddedGroup(AddedGroup)));
+    assertThat(contactWithGroup, equalTo(contactWithoutGroup.withAddedGroup(AddedGroup)));
 
 
   }

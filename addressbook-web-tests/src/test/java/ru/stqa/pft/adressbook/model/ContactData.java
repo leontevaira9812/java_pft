@@ -51,23 +51,6 @@ public class ContactData {
           joinColumns = @JoinColumn(name = "id"), inverseJoinColumns = @JoinColumn(name = "group_id"))
   private Set<GroupData> groups = new HashSet<GroupData>();
 
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    ContactData that = (ContactData) o;
-    return id == that.id && Objects.equals(name, that.name)
-            && Objects.equals(lastname, that.lastname)
-            && Objects.equals(address, that.address)
-            && Objects.equals(mobilePhone, that.mobilePhone)
-            && Objects.equals(firstEmail, that.firstEmail);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(id, name, lastname, address, mobilePhone, firstEmail);
-  }
-
   @Column(name = "email2")
   @Type(type = "text")
   public String secondEmail;
@@ -127,6 +110,19 @@ public class ContactData {
 
   public String workPhone() {
     return workPhone;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    ContactData that = (ContactData) o;
+    return id == that.id && Objects.equals(name, that.name) && Objects.equals(lastname, that.lastname) && Objects.equals(address, that.address) && Objects.equals(mobilePhone, that.mobilePhone) && Objects.equals(firstEmail, that.firstEmail) && Objects.equals(groups, that.groups);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id, name, lastname, address, mobilePhone, firstEmail, groups);
   }
 
   public ContactData id(int id) {
