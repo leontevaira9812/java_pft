@@ -239,6 +239,18 @@ public class ContactData {
             ", name='" + name + '\'' +
             ", lastname='" + lastname + '\'' +
             ", address='" + address + '\'' +
+            ", telephone='" + telephone + '\'' +
+            ", email='" + email + '\'' +
+            ", homePhone='" + homePhone + '\'' +
+            ", mobilePhone='" + mobilePhone + '\'' +
+            ", workPhone='" + workPhone + '\'' +
+            ", firstEmail='" + firstEmail + '\'' +
+            ", groups=" + groups +
+            ", secondEmail='" + secondEmail + '\'' +
+            ", thirdEmail='" + thirdEmail + '\'' +
+            ", allPhones='" + allPhones + '\'' +
+            ", allEmails='" + allEmails + '\'' +
+            ", photo='" + photo + '\'' +
             '}';
   }
 
@@ -265,5 +277,8 @@ public class ContactData {
     return this;
   }
 
-
+  public ContactData withoutGroup(GroupData group) {
+    groups.remove(group);
+    return this;
+  }
 }

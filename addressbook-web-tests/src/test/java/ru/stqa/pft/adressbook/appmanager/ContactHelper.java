@@ -179,6 +179,14 @@ public class ContactHelper extends BaseHelper {
     app.goTo().returnToHomePage();
   }
 
+  public ContactData createContact(ContactData contactCreation) {
+    initNewContact();
+    fillDataToContact(contactCreation, true);
+    saveContact();
+    app.goTo().returnToHomePage();
+    return contactCreation;
+  }
+
   public void modify(ContactData contactModification) {
     clickEditIcon(contactModification.getId());
     fillDataToContact(contactModification, false);
@@ -253,9 +261,10 @@ public class ContactHelper extends BaseHelper {
     click(By.name("add"));
   }
 
-  public void selectGroupFromList(String nameGroup) {
-    new Select(driver.findElement(By.name("to_group"))).selectByVisibleText((String.format("%s", nameGroup)));
-
+  public void selectGroupFromList(int id) {
+    //*/select[@id="trgLang"]/option[@value="32"]
+    // new Select(driver.findElement(By.name("to_group"))).selectByVisibleText((String.format("%s", nameGroup)));
+    new Select(driver.findElement(By.name("to_group"))).selectByValue(String.valueOf(id));
   }
 
   public ContactData findAddingContact(Contacts contactsAfter, int addingContactId) {
@@ -277,8 +286,8 @@ public class ContactHelper extends BaseHelper {
     return null;
   }
 
-  public void selectGroupFromUpperList(String groupName) {
-    new Select(driver.findElement(By.name("group"))).selectByVisibleText((String.format("%s", groupName)));
+  public void selectGroupFromUpperList(int id) {
+    new Select(driver.findElement(By.name("group"))).selectByValue(String.valueOf(id));
   }
 
   public void removeContactFromGroup() {
@@ -292,6 +301,30 @@ public class ContactHelper extends BaseHelper {
       }
     }
     throw new NullPointerException();
+  }
+
+  public static boolean isFoundContactWithoutGroup(Groups groups, Contacts contacts) {
+    boolean isFoundContactWithoutGroup = false;
+    for (ContactData contact : contacts) {
+      if (isFoundContactWithoutGroup) break;
+      for (GroupData group : groups) {
+        if (!contact.getGroups().contains(group)) {
+          isFoundContactWithoutGroup = true;
+          break;
+        }
+      }
+    }
+    return isFoundContactWithoutGroup;
+  }
+
+  public ContactData seachGroupInContacts(Contacts contactsBefore) {
+    for (ContactData contact : contactsBefore) {
+      if (contact.getGroups().size() > 0) {
+        ContactData selectedContact = contact;
+        return selectedContact;
+      }
+    }
+    return null;
   }
 
 }

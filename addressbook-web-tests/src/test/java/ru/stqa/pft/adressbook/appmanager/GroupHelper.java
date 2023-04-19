@@ -105,6 +105,15 @@ public class GroupHelper extends BaseHelper {
     returnToGroupList();
   }
 
+  public GroupData createGroup(GroupData group) {
+    initNewGroup();
+    fillGroupForm(group);
+    submitGroupCreation();
+    groupCache = null;
+    returnToGroupList();
+    return group;
+  }
+
   public void modify(GroupData group, int index) {
     selectGroup(index);
     editGroup();
