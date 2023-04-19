@@ -69,8 +69,8 @@ public class ContactToGroup extends TestBase {
   }
 
 
-  @Test(enabled = false)
-  public void TectContactDeleteFromGroup() {
+  @Test
+  public void TectContactDeleteFromGroup2() {
     Groups groups = app.db().groups();
     if (app.contact().seachGroupWithContacts(groups) == null) {
       app.contact().selectContactById(app.db().contacts().iterator().next().getId());
@@ -78,36 +78,17 @@ public class ContactToGroup extends TestBase {
       app.contact().clickAddToGroup();
       app.goTo().returnToHomePage();
     }
-    Groups groupsBefore = app.db().groups();
-    GroupData groupWithContact = app.contact().seachGroupWithContacts(groupsBefore);
-    app.contact().selectGroupFromUpperList(groupWithContact.id);
-    ContactData removedContact = groupWithContact.getContacts().iterator().next();
-    app.contact().selectContactById(removedContact.getId());
-    app.contact().removeContactFromGroup();
-    app.goTo().returnToHomePage();
-    Groups groupsAfter = app.db().groups();
-    GroupData groupWithoutContact = app.contact().find(groupsAfter, groupWithContact.id);
-    assertThat(groupWithoutContact.getContacts(), equalTo(groupWithContact.
-            withoutAddedContact(removedContact).getContacts().toArray()));
-
-
-  }
-
-  @Test(enabled = false)
-  public void TectContactDeleteFromGroup1() {
-    Groups groupsBefore = app.db().groups();
     Contacts contactsBefore = app.db().contacts();
-    GroupData groupWithContact = app.contact().seachGroupWithContacts(groupsBefore); // находим группу в которой есть контакт
-    app.contact().selectGroupFromUpperList(groupWithContact.id); //выбираем эту группу в списке на вебе
-    ContactData contactWithGroup = groupWithContact.getContacts().iterator().next(); // выбираем любой контакт из этой группы на удаление
-    app.contact().selectContactById(contactWithGroup.getId()); //выбираем контакт на вебе
-    app.contact().removeContactFromGroup();
+    ContactData contactWithGroup = app.contact().seachGroupInContacts(contactsBefore); // находим контакт в котором есть группа
+    Groups contactGroupsBefore = contactWithGroup.getGroups(); // запоминаем какие группы были в контакте
+    GroupData groupForDelete = contactWithGroup.getGroups().iterator().next();
+    app.contact().selectGroupFromUpperList(groupForDelete.id); //выбираем любую группу контакта
+    app.contact().selectContactById(contactWithGroup.getId());
+    app.contact().removeContactFromGroup(); //удаляем группу из этого контакта
     app.goTo().returnToHomePage();
-    Groups groupsAfter = app.db().groups();
     Contacts contactsAfter = app.db().contacts();
-    ContactData contactWithoutGroup = app.contact().findAddingContact(contactsAfter, contactWithGroup.getId());
-    //GroupData groupWithoutContact = app.contact().find(groupsAfter, groupWithContact.id);
-    assertThat(contactWithoutGroup, equalTo(contactWithGroup.
-            withoutGroup(groupWithContact)));
+    Groups contactGroupsAfter = app.contact().getContactGroupsAfter(contactWithGroup, contactsAfter);
+    assertThat(contactGroupsAfter, equalTo(contactGroupsBefore.withoutAdded(groupForDelete)));
   }
+
 }

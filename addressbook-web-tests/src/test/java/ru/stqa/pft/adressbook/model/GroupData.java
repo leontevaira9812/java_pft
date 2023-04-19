@@ -8,6 +8,7 @@ import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @XStreamAlias("group")
@@ -67,6 +68,19 @@ public class GroupData {
     return id;
   }
 
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    GroupData groupData = (GroupData) o;
+    return id == groupData.id && Objects.equals(name, groupData.name) && Objects.equals(logo, groupData.logo) && Objects.equals(comment, groupData.comment);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id, name, logo, comment);
+  }
 
   public String name() {
     return name;

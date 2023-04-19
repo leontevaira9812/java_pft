@@ -267,14 +267,6 @@ public class ContactHelper extends BaseHelper {
     new Select(driver.findElement(By.name("to_group"))).selectByValue(String.valueOf(id));
   }
 
-  public ContactData findAddingContact(Contacts contactsAfter, int addingContactId) {
-    for (ContactData element : contactsAfter) {
-      if (element.getId() == addingContactId) {
-        return element;
-      }
-    }
-    throw new NullPointerException();
-  }
 
   public GroupData seachGroupWithContacts(Groups groups) {
     for (GroupData group : groups) {
@@ -303,19 +295,6 @@ public class ContactHelper extends BaseHelper {
     throw new NullPointerException();
   }
 
-  public static boolean isFoundContactWithoutGroup(Groups groups, Contacts contacts) {
-    boolean isFoundContactWithoutGroup = false;
-    for (ContactData contact : contacts) {
-      if (isFoundContactWithoutGroup) break;
-      for (GroupData group : groups) {
-        if (!contact.getGroups().contains(group)) {
-          isFoundContactWithoutGroup = true;
-          break;
-        }
-      }
-    }
-    return isFoundContactWithoutGroup;
-  }
 
   public ContactData seachGroupInContacts(Contacts contactsBefore) {
     for (ContactData contact : contactsBefore) {
@@ -327,4 +306,22 @@ public class ContactHelper extends BaseHelper {
     return null;
   }
 
+  public Groups getContactGroupsAfter(ContactData contactWithGroup, Contacts contactsAfter) {
+    for (ContactData contact : contactsAfter) {
+      if (contact.getId() == contactWithGroup.getId()) {
+        return contact.getGroups();
+
+      }
+    }
+    throw new NullPointerException();
+  }
+
+  public ContactData findAddingContact(Contacts contactsAfter, int addingContactId) {
+    for (ContactData element : contactsAfter) {
+      if (element.getId() == addingContactId) {
+        return element;
+      }
+    }
+    throw new NullPointerException();
+  }
 }
